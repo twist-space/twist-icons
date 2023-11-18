@@ -1,0 +1,46 @@
+{
+  "extends": [
+    "eslint-config-airbnb-base",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [
+          ".ts",
+          ".tsx",
+          ".js",
+          ".jsx"
+        ]
+      }
+    }
+  },
+  "rules": {
+    "indent": ["error", 2],
+    "semi": ["error", "never"],
+    "comma-dangle": ["error", "never"],
+    "object-curly-spacing": ["error", "always"],
+    "import/no-extraneous-dependencies": "off",
+    "import/no-relative-packages": "off",
+    "arrow-body-style": ["error", "as-needed", { "requireReturnForObjectLiteral": true }],
+    "object-curly-newline": "off",
+    "no-unused-expressions": "off",
+    "array-callback-return": "off",
+    "no-param-reassign": "off",
+    "no-shadow": "off",
+    "no-unused-vars": ["error", { "vars": "all", "args": "none" }],
+    "import/extensions": "off",
+    "import/prefer-default-export": ["off", { "target": "any" }],
+    "implicit-arrow-linebreak": "off",
+    "no-restricted-syntax": "off",
+    "no-await-in-loop": "off",
+    "prefer-const": [
+      "warn",
+      {
+        "destructuring": "all"
+      }
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "esnext",
+    "declaration": true,
+    "skipLibCheck": true,
+    "noImplicitAny": false,
+    "noUnusedLocals": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "jsx": "preserve",
+    "lib": ["dom","esnext"]
+  },
+  "exclude": ["node_modules"]
+}

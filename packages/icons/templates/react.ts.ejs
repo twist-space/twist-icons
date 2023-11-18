@@ -1,0 +1,9 @@
+import * as React from 'react'
+
+const <%= name %> = React.forwardRef<SVGElement, React.SVGProps<SVGElement>>((props, ref) => {
+  return <%= svg %>
+})
+
+<%= name %>.displayName = '<%= name %>Icon'
+
+export default <%= name %>
