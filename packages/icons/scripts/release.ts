@@ -31,22 +31,28 @@ async function release(iconConfig: IconConfig, frameName: frameType) {
   const packageMeta = {
     name: scopedPackageName,
     version: versionMap[frameworkDir],
+    description,
+    author: 'razzh7 <razzhavenir@163.com>',
+    license: 'MIT',
     main: 'lib/index.js',
     module: 'es/index.js',
     types: 'es/index.d.ts',
+    exports: {
+      '.': {
+        types: './es/index.d.ts',
+        import: './es/index.js',
+        require: './lib/index.js'
+      },
+      './package.json': './package.json'
+    },
+    sideEffects: false,
     repository: {
       type: 'git',
       url: 'https://github.com/razzh7/twist-icons.git',
       directory: `packages/${iconConfig.name}-icons/${frameworkDir}`
     },
     files: ['lib', 'es', 'README.md'],
-    description,
-    license: 'MIT',
-    contributors: [
-      'razzh7 <razzhavenir@163.com>'
-    ],
     keywords: ['icon'].concat(keywords),
-    sideEffects: false,
     peerDependencies: {},
     devDependencies: {}
   }
@@ -59,6 +65,7 @@ async function release(iconConfig: IconConfig, frameName: frameType) {
       '@vue/babel-helper-vue-jsx-merge-props': '^1.4.0'
     }
     delete packageMeta.types
+    delete packageMeta.exports['.'].types
   }
 
   if (frameworkDir === 'vue-next') {
