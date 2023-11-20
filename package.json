@@ -10,7 +10,7 @@
     "genIcon:vue-next": "pnpm -C ./packages/icons run genIcon:vue-next",
     "genIcon:react": "pnpm -C ./packages/icons run genIcon:react",
     "genIcon:all": "pnpm -C ./packages/icons run genIcon:all",
-    "relase:vue": "pnpm -C ./packages/icons run relase:vue",
+    "release:vue": "pnpm -C ./packages/icons run relase:vue",
     "release:vue-next": "pnpm -C ./packages/icons run release:vue-next",
     "release:react": "pnpm -C ./packages/icons run release:react",
     "release:all": "pnpm -C ./packages/icons run release:all",
