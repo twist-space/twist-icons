@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "vue": "^3.3.4",
-    "@twist-icons-vue3/antd": "link:../../packages/icons/dist/antd-icons/vue-next"
+    "@twist-icons-vue3/antd": "link:../../packages/icons/antd-icons/vue-next"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.2.3",

@@ -10,8 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@twist-icons-react/andt": "link:../../packages/icons/dist/antd-icons/react",
-    "@twist-icons-react/tdesign": "link:../../packages/icons/dist/tdesign-icons/react",
+    "@twist-icons-react/andt": "link:../../packages/icons/antd-icons/react",
+    "@twist-icons-react/tdesign": "link:../../packages/icons/tdesign-icons/react",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

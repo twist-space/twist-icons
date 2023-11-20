@@ -46,7 +46,7 @@
     "vue": "^3.3.8"
   },
   "lint-staged": {
-    "packages/twist-icons/*.{ts,js,tsx,jsx}": [
+    "packages/twist-icons/*.{ts,js}": [
       "npm run lint",
       "npm run lint:tsc"
     ]

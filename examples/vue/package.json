@@ -14,8 +14,8 @@
     "@vitejs/plugin-vue2-jsx": "^1.1.0"
   },
   "dependencies": {
-    "@twist-icons-vue/antd": "link:../../packages/icons/dist/antd-icons/vue",
-    "@twist-icons-vue/tdesign": "link:../../packages/icons/dist/tdesign-icons/vue",
+    "@twist-icons-vue/antd": "link:../../packages/icons/antd-icons/vue",
+    "@twist-icons-vue/tdesign": "link:../../packages/icons/tdesign-icons/vue",
     "vue": "~2.7.14"
   }
 }
