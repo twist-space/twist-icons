@@ -1,0 +1,1 @@
+This is TwistIcons split package project root, auto generate by [packages/twist-icons/scripts/generate.ts](https://github.com/twist-space/twist-icons/blob/main/packages/twist-icons/scripts/generate.ts)
