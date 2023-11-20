@@ -5,7 +5,7 @@
     "forceConsistentCasingInFileNames": true,
     "declaration": true,
     "skipLibCheck": true,
-    "noImplicitAny": false,
+    "noImplicitAny": true,
     "noUnusedLocals": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,

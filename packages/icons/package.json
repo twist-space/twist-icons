@@ -32,6 +32,7 @@
     "@types/minimist": "^1.2.5",
     "@types/prompts": "^2.4.8",
     "@types/ramda": "^0.29.7",
+    "@types/react": "^18.2.15",
     "@types/through2": "^2.0.40",
     "@vue/babel-helper-vue-jsx-merge-props": "^1.4.0",
     "@vue/babel-plugin-jsx": "^1.1.5",
