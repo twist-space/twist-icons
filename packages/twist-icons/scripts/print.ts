@@ -2,19 +2,19 @@
 import { red, green, cyan, blue, yellow } from 'kolorist'
 
 const print = {
-  error(msg) {
+  error(msg: string) {
     console.log(red(msg))
   },
-  success(msg) {
+  success(msg: string) {
     console.log(green(msg))
   },
-  cyan(msg) {
+  cyan(msg: string) {
     console.log(cyan(msg))
   },
-  blue(msg) {
+  blue(msg: string) {
     console.log(blue(msg))
   },
-  warning(msg) {
+  warning(msg: string) {
     console.log(yellow(msg))
   }
 }

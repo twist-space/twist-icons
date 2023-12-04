@@ -2,3 +2,12 @@
 node_modules
 es
 lib
+
+# tsc build files
+*.tsbuildinfo
+
+# compiled output
+packages/_react-icons/*
+packages/_vue-icons/*
+packages/_vue2-icons/*
+packages/twist-icons/build/*

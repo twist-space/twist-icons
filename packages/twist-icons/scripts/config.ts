@@ -1,10 +1,11 @@
 import { locate } from '@iconify/json'
-import { normalizeName } from './util'
+import { normalizeName } from './utils'
 
 export interface IconConfig {
+  id: string
   name: string
   description: (name: string) => string
-  normalizeName: (name: string) => string
+  forrmatter: (name: string) => string
   iconifyPath: string
   keywords: string[]
 }
@@ -18,18 +19,20 @@ export interface FrameworksConfig {
 
 export const config: IconConfig[] = [
   {
+    id: 'ai',
     name: 'antd',
     description: (prefix) =>
       `${prefix} integrated from https://github.com/ant-design/ant-design-icons`,
-    normalizeName,
+    forrmatter: (name) => `Ai${normalizeName(name)}`,
     iconifyPath: locate('ant-design') as string,
     keywords: ['antd', 'ant-design', 'ant-design-icons']
   },
   {
+    id: 'ti',
     name: 'tdesign',
     description: (prefix) =>
       `${prefix} integrated from https://github.com/Tencent/tdesign-icons`,
-    normalizeName,
+    forrmatter: (name) => `Ti${normalizeName(name)}`,
     iconifyPath: locate('tdesign') as string,
     keywords: ['tdesign', 'tdesign', 'tdesign-icons']
   }

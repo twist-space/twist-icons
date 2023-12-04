@@ -36,11 +36,13 @@
     "implicit-arrow-linebreak": "off",
     "no-restricted-syntax": "off",
     "no-await-in-loop": "off",
+    "operator-linebreak": "off",
     "prefer-const": [
       "warn",
       {
         "destructuring": "all"
       }
-    ]
+    ],
+    "no-underscore-dangle": "off"
   }
 }

@@ -10,10 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@twist-icons-react/andt": "link:../../packages/icons/antd-icons/react",
-    "@twist-icons-react/tdesign": "link:../../packages/icons/tdesign-icons/react",
+    "@twist-space/react-icons": "workspace:^",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.12.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",

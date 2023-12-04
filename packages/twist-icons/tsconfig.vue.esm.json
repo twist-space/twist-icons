@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "module": "es6",
+    "jsx": "preserve",
+    "noImplicitAny": false,
+    "rootDir": "src/vue",
+    "outDir": "build/vue/esm",
+    "types": ["vue"]
+  },
+  "include": ["src/vue/**/*"]
+}

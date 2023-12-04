@@ -5,3 +5,9 @@ node_modules
 public
 cache
 .husky
+
+packages/twist-icons/build/react
+packages/twist-icons/build/vue
+packages/_react-icons/*
+packages/_vue-icons/*
+packages/_vue2-icons/*

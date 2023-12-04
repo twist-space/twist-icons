@@ -1,3 +1,3 @@
-export const versionVue = '0.1.1'
-export const versionVueNext = '0.1.1'
-export const versionReact = '0.1.3'
+export const versionVue2 = '0.2.1'
+export const versionVue3 = '0.2.1'
+export const versionReact = '0.2.3'

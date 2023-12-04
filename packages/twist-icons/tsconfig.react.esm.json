@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "module": "es6",
+    "jsx": "react",
+    "rootDir": "src/react",
+    "outDir": "build/react/esm"
+  },
+  "include": ["src/react/**/*"]
+}
