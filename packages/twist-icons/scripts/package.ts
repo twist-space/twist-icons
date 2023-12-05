@@ -1,6 +1,10 @@
 import { normalizeName } from './utils'
+import type { FrameNameType } from './types'
 
-export const packageMeta = (framename: string, version: string) => {
+export const packageMeta = (framename: FrameNameType, version: string) => {
+  const devDependencies = framename === 'vue2'
+    ? { '@vue/babel-helper-vue-jsx-merge-props': '^1.4.0' }
+    : undefined
   const packageMataBase = {
     author: 'razzh <razzhavenir@163.com>',
     license: 'MIT',
@@ -23,7 +27,8 @@ export const packageMeta = (framename: string, version: string) => {
       name: `@twist-space/${framename}-icons`,
       version,
       description: `${normalizeName(framename)} SVG icon components integrated from antd-design-icons and tdesign-icons`,
-      ...packageMataBase
+      ...packageMataBase,
+      devDependencies
     },
     null,
     2
