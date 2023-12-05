@@ -1,7 +1,6 @@
-import Vue from 'vue'
+export const IconContextKey = Symbol('IconContextKey')
 
-export const IconContextKey = Symbol('twist_icons_vue2_provider')
-export const IconProvider = Vue.extend({
+export const IconProvider = {
   name: 'IconProvider',
   props: {
     color: String,
@@ -17,4 +16,4 @@ export const IconProvider = Vue.extend({
   render(h) {
     return h('div', undefined, this.$slots.default)
   }
-})
+}
