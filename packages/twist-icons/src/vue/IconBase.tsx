@@ -92,6 +92,7 @@ IconBase.props = {
   rotate: Number as PropType<number>,
   onClick: Function as PropType<(e: MouseEvent) => void>
 }
+IconBase.inheritAttrs = false
 
 function renderHelper(node: AbstractNode[]) {
   return (

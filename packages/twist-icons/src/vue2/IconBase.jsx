@@ -10,7 +10,7 @@ const renderHelper = (h, node) => node &&
     ))
 
 export const GenIcon = (icon) => {
-  return {
+  const IconBase = {
     name: icon.name,
     props: {
       size: Number,
@@ -83,4 +83,7 @@ export const GenIcon = (icon) => {
       )
     }
   }
+  IconBase.inheritAttrs = false
+
+  return IconBase
 }
