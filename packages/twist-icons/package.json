@@ -8,11 +8,11 @@
     "genIcon:vue2": "tsx ./scripts/generate.ts --vue2",
     "genIcon:vue3": "tsx ./scripts/generate.ts --vue3",
     "genIcon:react": "tsx ./scripts/generate.ts --react",
-    "release:all": "pnpm run genIcon:all && tsx ./scripts/release.ts --vue --vue3 --react",
+    "release:all": "pnpm run genIcon:all && tsx ./scripts/release.ts --vue2 --vue3 --react",
     "release:vue2": "pnpm run genIcon:vue2 && tsx ./scripts/release.ts --vue2",
     "release:vue3": "pnpm run genIcon:vue3 && tsx ./scripts/release.ts --vue3",
     "release:react": "pnpm run genIcon:react && tsx ./scripts/release.ts --react",
-    "release:no-build": "tsx ./scripts/release.ts --vue --vue3 --react"
+    "release:no-build": "tsx ./scripts/release.ts --vue2 --vue3 --react"
   },
   "devDependencies": {
     "@babel/core": "^7.23.2",
