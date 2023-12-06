@@ -1,0 +1,12 @@
+{
+  "name": "vue2-test",
+  "private": true,
+  "type": "module",
+  "devDependencies": {
+    "@vue/test-utils": "^1.0.3",
+    "vue-template-compiler": "2.6.14"
+  },
+  "dependencies": {
+    "vue": "2.6.14"
+  }
+}

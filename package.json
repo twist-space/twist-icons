@@ -8,7 +8,7 @@
   "scripts": {
     "init": "pnpm i",
     "genIcon:all": "pnpm -C ./packages/twist-icons run genIcon:all",
-    "genIcon:vue": "pnpm -C ./packages/twist-icons run genIcon:vue2",
+    "genIcon:vue2": "pnpm -C ./packages/twist-icons run genIcon:vue2",
     "genIcon:vue3": "pnpm -C ./packages/twist-icons run genIcon:vue3",
     "genIcon:react": "pnpm -C ./packages/twist-icons run genIcon:react",
     "release:all": "pnpm -C ./packages/twist-icons run release:all",
@@ -18,7 +18,8 @@
     "release:no-build": "pnpm -C ./packages/twist-icons run release:no-build",
     "lint": "eslint ./packages --ext .ts,.js,.tsx,.jsx",
     "lint:tsc": "tsc --noEmit --skipLibCheck --project ./packages/twist-icons/tsconfig.base.json",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "test": "vitest"
   },
   "devDependencies": {
     "@commitlint/cli": "^18.4.2",
@@ -34,18 +35,29 @@
     "fs-extra": "^11.1.1",
     "husky": "^8.0.3",
     "install": "^0.13.0",
+    "jsdom": "^23.0.1",
     "lint-staged": "^15.1.0",
     "react": "^18.2.0",
     "rimraf": "^5.0.5",
     "svgo": "^3.0.2",
     "tsx": "3.14.0",
     "typescript": "^5.2.2",
-    "vite": "^4.4.5"
+    "vite": "^4.4.5",
+    "vitest": "^1.0.1"
   },
   "lint-staged": {
     "packages/twist-icons/*.{ts,js}": [
       "npm run lint",
       "npm run lint:tsc"
     ]
+  },
+  "pnpm": {
+    "packageExtensions": {
+      "vue-template-compiler": {
+        "peerDependencies": {
+          "vue": "2.6.14"
+        }
+      }
+    }
   }
 }
