@@ -46,15 +46,19 @@ export const GenIcon = (icon) => {
         className = config.class
       }
       if (spin) {
-        className += ' twist-icon-loading'
+        className ? className += ' twist-icon-loading' : className = 'twist-icon-loading'
       }
       if (rotate) {
         msTransform = `rotate(${rotate}deg)`
         transform = `rotate(${rotate}deg)`
       }
+      if (!className) {
+        className = undefined
+      }
+
       const svgProps = {
         attrs: {
-          ...config?.attrs,
+          ...config?.$attrs,
           ...abstractNode?.attrs,
           ...attrs
         }
