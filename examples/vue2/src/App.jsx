@@ -9,8 +9,8 @@ const App = {
       <div id='root'>
         <h2>Tdesign Icons</h2>
         <IconProvider size={80} color="red" >
-          <TiAdd size={100} spin />
-          <TiAdd size={100} spin />
+          <TiAdd size={100} />
+          <TiAdd size={100} />
         </IconProvider>
       </div>
     )
