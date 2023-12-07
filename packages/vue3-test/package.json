@@ -1,0 +1,11 @@
+{
+  "name": "vue3-test",
+  "private": true,
+  "type": "module",
+  "devDependencies": {
+    "@vue/test-utils": "^2.4.3"
+  },
+  "dependencies": {
+    "vue": "^3.3.9"
+  }
+}
