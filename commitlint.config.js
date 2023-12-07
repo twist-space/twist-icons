@@ -1,7 +1,10 @@
 module.exports = {
-  extends: ['@commitlint/config-conventional'],
+  extends: ['@commitlint/config-angular'],
   rules: {
-    'subject-case': [0],
-    'type-enum': [2, 'always', ['build', 'chore', 'ci', 'docs', 'feat', 'fix', 'enhance', 'refactor', 'revert', 'style', 'test', 'typo']]
+    'type-enum': [
+      2,
+      'always',
+      ['chore', 'build', 'ci', 'docs', 'feat', 'fix', 'perf', 'refactor', 'revert', 'style', 'test']
+    ]
   }
 }
