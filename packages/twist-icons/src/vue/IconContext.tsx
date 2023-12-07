@@ -1,34 +1,41 @@
 import {
   CSSProperties,
-  InjectionKey,
   provide,
-  inject,
-  SVGAttributes
+  SVGAttributes,
+  renderSlot,
+  defineComponent,
+  PropType
 } from 'vue'
 
-export interface IconContext {
+export type IconContext = {
   color?: string
   size?: number
   class?: string
   style?: CSSProperties
   attrs?: SVGAttributes
-  styleValue?: string
 }
-
-export const IconContextKey = Symbol('IconContextKey') as InjectionKey<IconContext>
+export const IconContextKey = Symbol('IconContextKey')
 
 export const DefaultContext: IconContext = {
   color: undefined,
   size: undefined,
   class: undefined,
   style: undefined,
-  attrs: undefined,
-  styleValue: '@twist-space/vue3-icons-css'
+  attrs: undefined
 }
 
-export const useProvideIconContext = (context: IconContext) => {
-  provide(IconContextKey, context)
-  return context
-}
-
-export const useInjectContext = (IconContextKey) => inject(IconContextKey, DefaultContext)
+export const IconConfigProvider = defineComponent({
+  name: 'IconConfigProvider',
+  props: {
+    color: String,
+    size: Number,
+    class: String,
+    style: Object as PropType<CSSProperties>,
+    attrs: String as PropType<SVGAttributes>,
+    styleValue: String
+  },
+  setup(props, { slots }) {
+    provide(IconContextKey, props)
+    return () => renderSlot(slots, 'default')
+  }
+})
