@@ -1,5 +1,4 @@
 import { defineComponent } from 'vue'
-import { useInjectContext, IconContextKey } from './IconContext'
 
 const ICONKEY = 'twist-icons-vue3'
 const iconCss = `
@@ -17,7 +16,7 @@ const iconCss = `
 }
 `
 
-function findStyleNode(value: string): HTMLStyleElement | undefined {
+const findStyleNode = (value: string): HTMLStyleElement | undefined => {
   const head = document.querySelector('head') as HTMLHeadElement
 
   return Array.from(head.children)
@@ -25,7 +24,7 @@ function findStyleNode(value: string): HTMLStyleElement | undefined {
     .find((node) => node.getAttribute(ICONKEY) === value) as HTMLStyleElement | undefined
 }
 
-function insertStyles(value: string) {
+const insertStyles = (value: string) => {
   const styleTarget = findStyleNode(value)
 
   if (styleTarget) {
@@ -41,11 +40,10 @@ function insertStyles(value: string) {
   document.head.appendChild(style)
 }
 
-export const InsertStylesComponent = defineComponent({
+export const UseInsertStyle = defineComponent({
   name: 'InsertStyles',
   setup() {
-    const { styleValue } = useInjectContext(IconContextKey)
-    insertStyles(styleValue || '@twist-space/vue3-icons-css')
+    insertStyles('@twist-space/vue3-icons-css')
     return () => null
   }
 })

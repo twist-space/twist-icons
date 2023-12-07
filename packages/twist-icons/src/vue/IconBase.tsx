@@ -1,12 +1,13 @@
 import {
   FunctionalComponent,
+  inject,
   PropType,
   SVGAttributes,
   CSSProperties,
   h
 } from 'vue'
-import { useInjectContext, IconContextKey } from './IconContext'
-import { InsertStylesComponent } from './useInsertStyles'
+import { IconContextKey, IconContext, DefaultContext } from './IconContext'
+import { UseInsertStyle } from './useInsertStyles'
 
 export interface AbstractNode {
   tag: string
@@ -35,7 +36,7 @@ export function IconBase(props: IconProps, { slots, attrs }) {
     ...svgProps
   } = props
   const children = slots.default && slots.default()
-  const config = useInjectContext(IconContextKey)
+  const config = inject<IconContext>(IconContextKey, DefaultContext)
   const mergedSize = size || config.size || '1em'
   let className = ''
   let msTransform = ''
@@ -48,12 +49,17 @@ export function IconBase(props: IconProps, { slots, attrs }) {
     className = className ? `${className} ${props.class}` : props.class
   }
   if (spin) {
-    className += ' twist-icon-loading'
+    className ? className += ' twist-icon-loading' : className = 'twist-icon-loading'
   }
   if (rotate) {
     msTransform = `rotate(${rotate}deg)`
     transform = `rotate(${rotate}deg)`
   }
+  if (!className) {
+    className = undefined
+  }
+
+  const titleTag = title ? <title>{title}</title> : ''
 
   return (
     <svg
@@ -65,19 +71,19 @@ export function IconBase(props: IconProps, { slots, attrs }) {
       {...svgProps}
       class={className}
       style={{
-        color: props.color || config.color,
+        color: props?.color || config.color,
         msTransform,
         transform,
         ...config.style,
-        ...props.style
+        ...props?.style
       }}
       width={mergedSize}
       height={mergedSize}
       xmlns="http://www.w3.org/2000/svg"
     >
-      {title && <title>{title}</title>}
+      {titleTag}
       {children}
-      <InsertStylesComponent />
+      <UseInsertStyle />
     </svg>
   )
 }
@@ -94,7 +100,7 @@ IconBase.props = {
 }
 IconBase.inheritAttrs = false
 
-function renderHelper(node: AbstractNode[]) {
+export function renderHelper(node: AbstractNode[]) {
   return (
     node &&
     node.map((node, i) =>
