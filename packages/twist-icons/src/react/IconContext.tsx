@@ -6,7 +6,6 @@ export interface IconContext {
   className?: string
   style?: React.CSSProperties
   attrs?: React.SVGAttributes<SVGElement>
-  styleValue?: string
 }
 
 export const DefaultContext: IconContext = {
@@ -14,9 +13,10 @@ export const DefaultContext: IconContext = {
   size: undefined,
   className: undefined,
   style: undefined,
-  attrs: undefined,
-  styleValue: '@twist-space/react-icons-css'
+  attrs: undefined
 }
 
 export const IconContext: React.Context<IconContext> =
   React.createContext(DefaultContext)
+
+export const IconProvider = IconContext.Provider
