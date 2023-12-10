@@ -15,5 +15,12 @@ export default defineWorkspace([
       include: ['packages/vue3-test/tests/*.{test,spec}.ts'],
       environment: 'jsdom'
     }
+  },
+  {
+    test: {
+      name: 'react-test',
+      include: ['packages/react-test/tests/*.{test,spec}.tsx'],
+      environment: 'jsdom'
+    }
   }
 ])

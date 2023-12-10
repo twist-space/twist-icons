@@ -1,0 +1,7 @@
+{
+  "name": "react-test",
+  "private": true,
+  "devDependencies": {
+    "@testing-library/react": "^14.1.2"
+  }
+}
