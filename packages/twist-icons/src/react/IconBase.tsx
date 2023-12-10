@@ -32,12 +32,11 @@ export function IconBase(props: IconProps): React.JSX.Element {
     ...svgProps
   } = props
   const GlobalConfig = React.useContext(IconContext)
-  const { styleValue } = DefaultContext
 
-  useInsertStyles(GlobalConfig.styleValue || styleValue)
+  useInsertStyles('@twist-space/react-icons-css')
   const elem = (config: IconContext) => {
     const mergedSize = size || config.size || '1em'
-    let className = ''
+    let className
     let msTransform = ''
     let transform = ''
 
@@ -48,7 +47,7 @@ export function IconBase(props: IconProps): React.JSX.Element {
       className = className ? `${className} ${props.className}` : props.className
     }
     if (spin) {
-      className += ' twist-icon-loading'
+      className ? className += ' twist-icon-loading' : className = 'twist-icon-loading'
     }
     if (rotate) {
       msTransform = `rotate(${rotate}deg)`
