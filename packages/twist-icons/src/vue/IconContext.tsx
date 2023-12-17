@@ -24,8 +24,8 @@ export const DefaultContext: IconContext = {
   attrs: undefined
 }
 
-export const IconConfigProvider = defineComponent({
-  name: 'IconConfigProvider',
+export const IconProvider = defineComponent({
+  name: 'IconProvider',
   props: {
     color: String,
     size: Number,
