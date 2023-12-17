@@ -38,7 +38,7 @@ export const GenIcon = (icon) => {
       const { size, color, title, spin, rotate } = props
       const { abstractNode } = this.icon
       const mergeSize = size || config?.size || '1em'
-      let className = ''
+      let className
       let msTransform = ''
       let transform = ''
 
@@ -51,9 +51,6 @@ export const GenIcon = (icon) => {
       if (rotate) {
         msTransform = `rotate(${rotate}deg)`
         transform = `rotate(${rotate}deg)`
-      }
-      if (!className) {
-        className = undefined
       }
 
       const svgProps = {
