@@ -38,7 +38,7 @@ export function IconBase(props: IconProps, { slots, attrs }) {
   const children = slots.default && slots.default()
   const config = inject<IconContext>(IconContextKey, DefaultContext)
   const mergedSize = size || config.size || '1em'
-  let className = ''
+  let className
   let msTransform = ''
   let transform = ''
 
@@ -54,9 +54,6 @@ export function IconBase(props: IconProps, { slots, attrs }) {
   if (rotate) {
     msTransform = `rotate(${rotate}deg)`
     transform = `rotate(${rotate}deg)`
-  }
-  if (!className) {
-    className = undefined
   }
 
   const titleTag = title ? <title>{title}</title> : ''

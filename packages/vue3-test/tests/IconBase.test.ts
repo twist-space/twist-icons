@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils'
 import { h } from 'vue'
 import { describe, test, expect } from 'vitest'
-import { IconConfigProvider } from '../../_vue-icons'
+import { IconProvider } from '../../_vue-icons'
 import { AiAudioFilled, AiAudioTwotone } from '../../_vue-icons/ai'
 
 describe('@twist-space/vue3-icons', () => {
@@ -58,7 +58,7 @@ describe('@twist-space/vue3-icons', () => {
 describe('IconConfigProvider and Icon component render priority test', () => {
   test('Icon props hsa a higher priority than IconConfigProvider props', () => {
     const AiAudioFilledIcon = h(AiAudioFilled, { size: 200, color: 'green' })
-    const Icon = mount(IconConfigProvider, {
+    const Icon = mount(IconProvider, {
       props: {
         size: 100,
         color: 'black'
