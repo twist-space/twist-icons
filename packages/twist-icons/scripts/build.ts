@@ -39,10 +39,10 @@ async function babelify(config: BabelConfig, filePath: string, outpath: string) 
 
 async function buildReact() {
   const {
-    LIBESM,
-    LIBCJS,
-    BUILDCJS,
-    BUILDESM,
+    LIB_ESM,
+    LIB_CJS,
+    BUILD_CJS,
+    BUILD_ESM,
     TSCONFIG_CJS,
     TSCONFIG_ESM
   } = ReactBuildConfig
@@ -50,14 +50,14 @@ async function buildReact() {
     // build cjs
     await execa('npx', ['tsc', '-p', TSCONFIG_CJS])
     await copyRecursive(
-      BUILDCJS,
-      LIBCJS
+      BUILD_CJS,
+      LIB_CJS
     )
     // build esm
     await execa('npx', ['tsc', '-p', TSCONFIG_ESM])
     await copyRecursive(
-      BUILDESM,
-      LIBESM
+      BUILD_ESM,
+      LIB_ESM
     )
   } catch (error) {
     print.error(error)
