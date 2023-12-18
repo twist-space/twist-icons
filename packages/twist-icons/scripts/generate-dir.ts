@@ -5,12 +5,13 @@ import { rmDirRecursive } from './utils'
 import { packageMeta } from './package'
 import { versionReact, versionVue3, versionVue2 } from './version'
 import type { FrameNameType } from './types'
+import type { BuildCommonConfig } from './build.config'
 
 export async function generateDir(
-  dirPath: { DIST: string, LIB: string },
+  buildConfig: BuildCommonConfig,
   frameName: FrameNameType
 ) {
-  const { DIST, LIB } = dirPath
+  const { DIST, LIB } = buildConfig
 
   const ignore = (err: NodeJS.ErrnoException) => {
     if (err.code === 'EEXIST') return
