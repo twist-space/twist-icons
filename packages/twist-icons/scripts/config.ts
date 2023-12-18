@@ -1,9 +1,16 @@
 import { locate } from '@iconify/json'
 import { normalizeName } from './utils'
 
-export interface IconConfig {
+export interface IconManifest {
   id: string
   name: string
+  author: string
+  license: string
+  licenseUrl: string
+  projectUrl: string
+}
+
+export interface IconConfig extends IconManifest {
   description: (name: string) => string
   forrmatter: (name: string) => string
   iconifyPath: string
@@ -25,7 +32,11 @@ export const config: IconConfig[] = [
       `${prefix} integrated from https://github.com/ant-design/ant-design-icons`,
     forrmatter: (name) => `Ai${normalizeName(name)}`,
     iconifyPath: locate('ant-design') as string,
-    keywords: ['antd', 'ant-design', 'ant-design-icons']
+    keywords: ['antd', 'ant-design', 'ant-design-icons'],
+    author: 'HeskeyBaozi',
+    license: 'MIT',
+    licenseUrl: 'https://github.com/ant-design/ant-design-icons/blob/master/LICENSE',
+    projectUrl: 'https://github.com/ant-design/ant-design-icons'
   },
   {
     id: 'ti',
@@ -34,7 +45,11 @@ export const config: IconConfig[] = [
       `${prefix} integrated from https://github.com/Tencent/tdesign-icons`,
     forrmatter: (name) => `Ti${normalizeName(name)}`,
     iconifyPath: locate('tdesign') as string,
-    keywords: ['tdesign', 'tdesign', 'tdesign-icons']
+    keywords: ['tdesign', 'tdesign', 'tdesign-icons'],
+    author: 'TDesign',
+    license: 'MIT',
+    licenseUrl: 'https://github.com/Tencent/tdesign-icons/blob/main/LICENSE',
+    projectUrl: 'https://github.com/Tencent/tdesign-icons'
   }
 ]
 
