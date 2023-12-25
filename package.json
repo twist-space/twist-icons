@@ -6,7 +6,7 @@
   "author": "razzh7 <razzhavenir@163.com>",
   "license": "MIT",
   "scripts": {
-    "init": "pnpm i",
+    "init": "./init.sh",
     "genIcon:all": "pnpm -C ./packages/twist-icons run genIcon:all",
     "genIcon:vue2": "pnpm -C ./packages/twist-icons run genIcon:vue2",
     "genIcon:vue3": "pnpm -C ./packages/twist-icons run genIcon:vue3",
