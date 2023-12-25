@@ -10,17 +10,17 @@ npm i @twist-space/react-icons
 ```
 
 
-```tsx
-import { IconContext } from '@twist-space/react-icons'
+```jsx
+import { IconProvider } from '@twist-space/react-icons'
 import { AiAmazonOutlined } from '@twist-space/react-icons/ai'
 
 export default function App() {
   return (
-    <IconContext.Provider value={{ size: 30 }}>
+    <IconProvider value={{ size: 30 }}>
       <AiAmazonOutlined rotate={90} />
       <AiAmazonOutlined spin />
       <AiAmazonOutlined size={30} color='blue' />
-    </IconContext.Provider>
+    </IconProvider>
   )
 }
 ```
@@ -32,22 +32,20 @@ npm i @twist-space/vue3-icons
 ```
 
 
-```ts
+```vue
 <script setup lang="ts">
-import { useProvideIconContext } from '@twist-space/vue3-icons'
+import { IconProvider } from '@twist-space/vue3-icons'
 import { AiAmazonOutlined } from '@twist-space/vue3-icons/ai'
-
-useProvideIconContext({
-  color: '#333',
-  size: 20
-})
 </script>
+
 <template>
-  <div>
-    <AiAmazonOutlined spin />
-    <AiAmazonOutlined :rotate="90" />
-    <AiAmazonOutlined :size="30" color='#ccc' />
-  </div>
+  <IconProvider color="blue" :size="100">
+    <AiTagTwotone />
+  </IconProvider>
+  <AiTagTwotone />
+  <AiTagTwotone :size="100" @click="onClick" title="razzh" />
+  <AiAccountBookFilled :size="30" spin class="twist-aa" :style="{color: 'green'}" />
+  <AiLeftCircleFilled :size="100" id="twistzz" />
 </template>
 ```
 
@@ -57,8 +55,7 @@ useProvideIconContext({
 npm i @twist-space/vue2-icons
 ```
 
-
-```html
+```vue
 <template>
   <IconProvider :size="20" color="#333">
     <AiAmazonOutlined spin />
@@ -107,4 +104,4 @@ IconProvider will affect all the descendant Icons' default prop value, but the p
 
 ### Thanks
 
-This project inspired by [react-icons](https://github.com/react-icons/react-icons) and [xicons](https://github.com/07akioni/xicons). I learned a lot from it, thanks the project maintainers!
+This project inspired by [react-icons](https://github.com/react-icons/react-icons) and [xicons](https://github.com/07akioni/xicons). I learned a lot from it, thanks these project maintainers!

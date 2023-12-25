@@ -9,21 +9,19 @@ English | [简体中文](README.zh.md)
 npm i @twist-space/react-icons
 ```
 
-
-```tsx
-import { IconContext } from '@twist-space/react-icons'
+```jsx
+import { IconProvider } from '@twist-space/react-icons'
 import { AiAmazonOutlined } from '@twist-space/react-icons/ai'
 
 export default function App() {
   return (
-    <IconContext.Provider value={{ size: 30 }}>
+    <IconProvider value={{ size: 30 }}>
       <AiAmazonOutlined rotate={90} />
       <AiAmazonOutlined spin />
       <AiAmazonOutlined size={30} color='blue' />
-    </IconContext.Provider>
+    </IconProvider>
   )
 }
-```
 
 ### Vue3
 
@@ -31,23 +29,20 @@ export default function App() {
 npm i @twist-space/vue3-icons
 ```
 
-
-```ts
+```vue
 <script setup lang="ts">
-import { useProvideIconContext } from '@twist-space/vue3-icons'
+import { IconProvider } from '@twist-space/vue3-icons'
 import { AiAmazonOutlined } from '@twist-space/vue3-icons/ai'
-
-useProvideIconContext({
-  color: '#333',
-  size: 20
-})
 </script>
+
 <template>
-  <div>
-    <AiAmazonOutlined spin />
-    <AiAmazonOutlined :rotate="90" />
-    <AiAmazonOutlined :size="30" color='#ccc' />
-  </div>
+  <IconProvider color="blue" :size="100">
+    <AiTagTwotone />
+  </IconProvider>
+  <AiTagTwotone />
+  <AiTagTwotone :size="100" @click="onClick" title="razzh" />
+  <AiAccountBookFilled :size="30" spin class="twist-aa" :style="{color: 'green'}" />
+  <AiLeftCircleFilled :size="100" id="twistzz" />
 </template>
 ```
 
@@ -57,8 +52,7 @@ useProvideIconContext({
 npm i @twist-space/vue2-icons
 ```
 
-
-```html
+```vue
 <template>
   <IconProvider :size="20" color="#333">
     <AiAmazonOutlined spin />
