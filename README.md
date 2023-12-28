@@ -81,13 +81,13 @@ An universal icon component is provided for customizing color & size of the inne
 
 | prop  | type               | default | description            |
 | ----- | ------------------ | ------- | ---------------------- |
-| size  | `number`           | -       | Size of the icon.      |
-| color | `string`           | -       | Color of the icon.     |
-| style | `CSSProperties`    | -       | Style of the icon.     |
-| class | `string`           | -       | Class of the icon.     |
-| title | `string`           | -       | SVG title of the icon.     |
-| spin  | `string`           | false   | Spin animation of the icon.  |
-| rotate| `string`           | -       | Rotate style of the icon.  |
+| size  | `number`           | -       | Size of the icon       |
+| color | `string`           | -       | Color of the icon      |
+| style | `CSSProperties`    | -       | Style of the icon      |
+| class | `string`           | -       | Class of the icon      |
+| title | `string`           | -       | SVG title of the icon  |
+| spin  | `string`           | false   | Spin animation of the icon |
+| rotate| `string`           | -       | Rotate style of the icon |
 
 ### IconProvider API
 
@@ -95,12 +95,12 @@ IconProvider will affect all the descendant Icons' default prop value, but the p
 
 | prop  | type               | default | description            |
 | ----- | ------------------ | ------- | ---------------------- |
-| size  | `number`           | -       | Size of the icon.      |
-| color | `string`           | -       | Color of the icon.     |
-| style | `CSSProperties`    | -       | Style of the icon.     |
-| class | `string`           | -       | Class of the icon.     |
-| attrs | `SVGAttributes`    | -       | SVGAttributes of the icon.|
-| styleValue | `string`      | -       | StyleValue can custom style tag iconKey value.|
+| size  | `number`           | -       | Size of the icon       |
+| color | `string`           | -       | Color of the icon      |
+| style | `CSSProperties`    | -       | Style of the icon      |
+| class | `string`           | -       | Class of the icon      |
+| attrs | `SVGAttributes`    | -       | SVGAttributes of the icon |
+| styleValue | `string`      | -       | StyleValue can custom style tag iconKey value |
 
 ### Thanks
 

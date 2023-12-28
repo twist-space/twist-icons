@@ -78,13 +78,14 @@ Icon 组件提供了自定义的 API，如大小，颜色，样式等。
 
 | prop  | type               | default | description            |
 | ----- | ------------------ | ------- | ---------------------- |
-| size  | `number`           | -       | Size of the icon.      |
-| color | `string`           | -       | Color of the icon.     |
-| style | `CSSProperties`    | -       | Style of the icon.     |
-| class | `string`           | -       | Class of the icon.     |
-| title | `string`           | -       | SVG title of the icon.     |
-| spin  | `string`           | false   | Spin animation of the icon.  |
-| rotate| `string`           | -       | Rotate style of the icon.  |
+| size  | `number`           | -       | Icon的大小              |
+| color | `string`           | -       | Icon的颜色              |
+| style | `CSSProperties`    | -       | Icon的样式              |
+| className | `string`       | -       | React Icon             |
+| class | `string`           | -       | Vue Icon的类名          |
+| title | `string`           | -       | SVG title标签           |
+| spin  | `string`           | false   | SVG旋转动画              |
+| rotate| `string`           | -       | Icon的旋转角度           |
 
 ### IconProvider API
 
@@ -92,12 +93,12 @@ Icon 组件提供了自定义的 API，如大小，颜色，样式等。
 
 | prop  | type               | default | description            |
 | ----- | ------------------ | ------- | ---------------------- |
-| size  | `number`           | -       | Size of the icon.      |
-| color | `string`           | -       | Color of the icon.     |
-| style | `CSSProperties`    | -       | Style of the icon.     |
-| class | `string`           | -       | Class of the icon.     |
-| attrs | `SVGAttributes`    | -       | SVGAttributes of the icon.|
-| styleValue | `string`      | -       | StyleValue can custom style tag iconKey value.|
+| size  | `number`           | -       | Icon的大小              |
+| color | `string`           | -       | Icon的颜色              |
+| style | `CSSProperties`    | -       | Icon的样式              |
+| className | `string`       | -       | React Icon             |
+| class | `string`           | -       | Vue Icon的类名          |
+| attrs | `SVGAttributes`    | -       | SVG的属性               |
 
 ### Thanks
 
