@@ -1,16 +1,15 @@
-import './App.css'
 import { IconProvider } from '@twist-space/vue2-icons'
-import { TiAdd } from '@twist-space/vue2-icons/ti'
+import { TiCheckCircleFilled, TiCat } from '@twist-space/vue2-icons/ti'
+import './App.css'
 
 const App = {
   name: 'App',
   render() {
     return (
       <div id='root'>
-        <h2>Tdesign Icons</h2>
-        <IconProvider size={80} color="red" >
-          <TiAdd size={100} />
-          <TiAdd size={100} />
+        <IconProvider size={60}>
+          <TiCheckCircleFilled color="green" />
+          <TiCat size={30} />
         </IconProvider>
       </div>
     )
