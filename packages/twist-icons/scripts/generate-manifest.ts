@@ -24,7 +24,7 @@ export async function generateManifest(
   // generate esm manifest.js
   await fs.writeFile(
     path.resolve(LIB_ESM, 'iconsManifest.js'),
-    `export default var IconsManifest = ${IconManifest}`
+    `export var IconsManifest = ${IconManifest}`
   )
 
   // generate cjs manifest.js
