@@ -4,7 +4,7 @@
     "plugin:@typescript-eslint/recommended"
   ],
   "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint"],
+  "plugins": ["@typescript-eslint", "import"],
   "settings": {
     "import/resolver": {
       "node": {
@@ -12,7 +12,8 @@
           ".ts",
           ".tsx",
           ".js",
-          ".jsx"
+          ".jsx",
+          ".d.ts"
         ]
       }
     }
