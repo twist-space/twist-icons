@@ -1,6 +1,8 @@
 # TwistIcons
 English | [简体中文](README.zh.md)
 
+Twist-Icons is a set of high-quality SVG icon libraries. It collection popular Icons provide React、Vue and Vue2 Icons component, you can easy use them with ES6 import.
+
 ## Usage
 
 ### For React
@@ -12,14 +14,14 @@ npm i @twist-space/react-icons
 
 ```jsx
 import { IconProvider } from '@twist-space/react-icons'
-import { AiAmazonOutlined } from '@twist-space/react-icons/ai'
+import { AiThunderboltFilled } from '@twist-space/react-icons/ai'
+import { TiModeDark } from '@twist-space/react-icons/ti'
 
 export default function App() {
   return (
-    <IconProvider value={{ size: 30 }}>
-      <AiAmazonOutlined rotate={90} />
-      <AiAmazonOutlined spin />
-      <AiAmazonOutlined size={30} color='blue' />
+    <IconProvider value={{ size: 60 }}>
+      <AiThunderboltFilled color="#906efe" />
+      <TiModeDark size={30} />
     </IconProvider>
   )
 }
@@ -35,17 +37,15 @@ npm i @twist-space/vue3-icons
 ```vue
 <script setup lang="ts">
 import { IconProvider } from '@twist-space/vue3-icons'
-import { AiAmazonOutlined } from '@twist-space/vue3-icons/ai'
+import { AiThunderboltFilled } from '@twist-space/vue3-icons/ai'
+import { TiModeDark } from '@twist-space/vue3-icons/ti'
 </script>
 
 <template>
-  <IconProvider color="blue" :size="100">
-    <AiTagTwotone />
+  <IconProvider :size="60">
+    <AiThunderboltFilled color="#906efe" />
+    <TiModeDark :size="30" />
   </IconProvider>
-  <AiTagTwotone />
-  <AiTagTwotone :size="100" @click="onClick" title="razzh" />
-  <AiAccountBookFilled :size="30" spin class="twist-aa" :style="{color: 'green'}" />
-  <AiLeftCircleFilled :size="100" id="twistzz" />
 </template>
 ```
 
@@ -57,19 +57,21 @@ npm i @twist-space/vue2-icons
 
 ```vue
 <template>
-  <IconProvider :size="20" color="#333">
-    <AiAmazonOutlined spin />
-    <AiAmazonOutlined :rotate="90" />
-    <AiAmazonOutlined :size="30" color='#ccc' />
+  <IconProvider :size="60">
+    <AiThunderboltFilled color="#906efe" />
+    <TiModeDark :size="30" />
   </IconProvider>
 </template>
 
 <script>
 import { IconProvider } from '@twist-space/vue2-icons'
-import { AiAmazonOutlined } from '@twist-space/vue2-icons/ai'
+import { AiThunderboltFilled } from '@twist-space/vue2-icons/ai'
+import { TiModeDark } from '@twist-space/vue2-icons/ti'
 export default {
   components: {
-    AiAmazonOutlined
+    IconProvider,
+    AiThunderboltFilled,
+    TiModeDark,
   }
 }
 </script>
@@ -100,7 +102,36 @@ IconProvider will affect all the descendant Icons' default prop value, but the p
 | style | `CSSProperties`    | -       | Style of the icon      |
 | class | `string`           | -       | Class of the icon      |
 | attrs | `SVGAttributes`    | -       | SVGAttributes of the icon |
-| styleValue | `string`      | -       | StyleValue can custom style tag iconKey value |
+
+### Auto Import
+If your project use Vue3/2, you can use the [unplugin-vue-components](https://github.com/unplugin/unplugin-vue-components) plugin to automatically import components without using import icon component in the project.
+
+```bash
+npm i unplugin-vue-components @twist-space/twist-icons-plugins -D
+```
+
+```typescript
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
+import Components from 'unplugin-vue-components/vite'
+import { TwistIconsVueResolver } from '@twist-space/twist-icons-plugins'
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [
+    vue(),
+    Components({
+      resolvers: [
+        TwistIconsVueResolver({
+          version: 'vue3'
+        })
+      ]
+    })
+  ]
+})
+```
+
+> TIP: The above content using unplugin plugins is also applicable to Webpack, you only need to switch the path of the plugin introduction.
 
 ### Thanks
 

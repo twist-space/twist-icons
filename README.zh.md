@@ -1,7 +1,9 @@
 # TwistIcons
 English | [简体中文](README.zh.md)
 
-## 使用
+Twist-Icons 是一套高质量的 SVG 图标库，它收集了流行的图标，提供了 React、Vue、Vue2 Icons 组件，你可以通过 ES6 的 import 方式轻松使用它们
+
+## 开始使用
 
 ### React
 
@@ -9,44 +11,45 @@ English | [简体中文](README.zh.md)
 npm i @twist-space/react-icons
 ```
 
+
 ```jsx
 import { IconProvider } from '@twist-space/react-icons'
-import { AiAmazonOutlined } from '@twist-space/react-icons/ai'
+import { AiThunderboltFilled } from '@twist-space/react-icons/ai'
+import { TiModeDark } from '@twist-space/react-icons/ti'
 
 export default function App() {
   return (
-    <IconProvider value={{ size: 30 }}>
-      <AiAmazonOutlined rotate={90} />
-      <AiAmazonOutlined spin />
-      <AiAmazonOutlined size={30} color='blue' />
+    <IconProvider value={{ size: 60 }}>
+      <AiThunderboltFilled color="#906efe" />
+      <TiModeDark size={30} />
     </IconProvider>
   )
 }
+```
 
-### Vue3
+### For Vue3
 
 ```bash
 npm i @twist-space/vue3-icons
 ```
 
+
 ```vue
 <script setup lang="ts">
 import { IconProvider } from '@twist-space/vue3-icons'
-import { AiAmazonOutlined } from '@twist-space/vue3-icons/ai'
+import { AiThunderboltFilled } from '@twist-space/vue3-icons/ai'
+import { TiModeDark } from '@twist-space/vue3-icons/ti'
 </script>
 
 <template>
-  <IconProvider color="blue" :size="100">
-    <AiTagTwotone />
+  <IconProvider :size="60">
+    <AiThunderboltFilled color="#906efe" />
+    <TiModeDark :size="30" />
   </IconProvider>
-  <AiTagTwotone />
-  <AiTagTwotone :size="100" @click="onClick" title="razzh" />
-  <AiAccountBookFilled :size="30" spin class="twist-aa" :style="{color: 'green'}" />
-  <AiLeftCircleFilled :size="100" id="twistzz" />
 </template>
 ```
 
-### Vue2
+### For Vue2
 
 ```bash
 npm i @twist-space/vue2-icons
@@ -54,19 +57,21 @@ npm i @twist-space/vue2-icons
 
 ```vue
 <template>
-  <IconProvider :size="20" color="#333">
-    <AiAmazonOutlined spin />
-    <AiAmazonOutlined :rotate="90" />
-    <AiAmazonOutlined :size="30" color='#ccc' />
+  <IconProvider :size="60">
+    <AiThunderboltFilled color="#906efe" />
+    <TiModeDark :size="30" />
   </IconProvider>
 </template>
 
 <script>
 import { IconProvider } from '@twist-space/vue2-icons'
-import { AiAmazonOutlined } from '@twist-space/vue2-icons/ai'
+import { AiThunderboltFilled } from '@twist-space/vue2-icons/ai'
+import { TiModeDark } from '@twist-space/vue2-icons/ti'
 export default {
   components: {
-    AiAmazonOutlined
+    IconProvider,
+    AiThunderboltFilled,
+    TiModeDark,
   }
 }
 </script>
@@ -100,7 +105,38 @@ Icon 组件提供了自定义的 API，如大小，颜色，样式等。
 | class | `string`           | -       | Vue Icon的类名          |
 | attrs | `SVGAttributes`    | -       | SVG的属性               |
 
+### Auto Import
+如果你的项目使用的是Vue3/2，可以使用 [unplugin-vue-components](https://github.com/unplugin/unplugin-vue-components) 插件完成组件的自动引入，无需在项目中使用 import 引入 Icon 组件
+
+
+```bash
+npm i unplugin-vue-components @twist-space/twist-icons-plugins -D
+```
+
+```typescript
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
+import Components from 'unplugin-vue-components/vite'
+import { TwistIconsVueResolver } from '@twist-space/twist-icons-plugins'
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [
+    vue(),
+    Components({
+      resolvers: [
+        TwistIconsVueResolver({
+          version: 'vue3'
+        })
+      ]
+    })
+  ]
+})
+```
+
+> TIP: The above content using unplugin plugins is also applicable to Webpack, you only need to switch the path of the plugin introduction.
+
 ### Thanks
 
 这个项目受到 [react-icons](https://github.com/react-icons/react-icons) and [xicons](https://github.com/07akioni/xicons)
-的启发，我从中获益匪浅，感谢🙏热爱开源的维护者们。
+的启发，我从中获益匪浅。
