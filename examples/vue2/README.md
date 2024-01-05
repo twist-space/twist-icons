@@ -1,1 +1,0 @@
-Vue2 Icons Playground

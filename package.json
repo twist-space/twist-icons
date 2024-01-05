@@ -7,6 +7,7 @@
   "license": "MIT",
   "scripts": {
     "init": "./init.sh",
+    "build:plugins": "pnpm -C ./packages/plugins run build",
     "genIcon:all": "pnpm -C ./packages/twist-icons run genIcon:all",
     "genIcon:vue2": "pnpm -C ./packages/twist-icons run genIcon:vue2",
     "genIcon:vue3": "pnpm -C ./packages/twist-icons run genIcon:vue3",

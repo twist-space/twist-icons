@@ -1,0 +1,20 @@
+{
+  "name": "vite-vue2",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "cross-env DEBUG=unplugin-vue-components:* vite build",
+    "dev": "cross-env DEBUG=unplugin-vue-components:* vite"
+  },
+  "dependencies": {
+    "@twist-space/vue2-icons": "workspace:^",
+    "vue": "^2.7.14"
+  },
+  "devDependencies": {
+    "@twist-space/twist-icons-plugins": "workspace:^",
+    "@vitejs/plugin-vue2": "^2.3.1",
+    "cross-env": "^7.0.3",
+    "unplugin-vue-components": "^0.26.0",
+    "vite": "^4.4.5"
+  }
+}
