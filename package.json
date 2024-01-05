@@ -55,14 +55,5 @@
       "npm run lint:tsc",
       "npm run test"
     ]
-  },
-  "pnpm": {
-    "packageExtensions": {
-      "vue-template-compiler": {
-        "peerDependencies": {
-          "vue": "2.6.14"
-        }
-      }
-    }
   }
 }
