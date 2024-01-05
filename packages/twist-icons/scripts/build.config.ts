@@ -1,5 +1,5 @@
 import path from 'path'
-import { getBabelConfig } from './utils'
+import { getBabelConfig, slash } from './utils'
 import type { BabelConfig } from './types'
 
 export interface BuildCommonConfig {
@@ -179,7 +179,7 @@ export interface BuildVue2Config extends BuildCommonConfig {
 }
 
 export const rootDir = path.resolve(__dirname, '../')
-export const resolve = (dir: string) => path.resolve(rootDir, dir)
+export const resolve = (dir: string) => slash(path.resolve(rootDir, dir))
 export const READEME_PATH = resolve('../../README.md')
 
 export const ReactBuildConfig: BuildReactConfig = {
