@@ -1,0 +1,31 @@
+{
+  "name": "@twist-space/twist-icons-plugins",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": "razzh7",
+  "type": "module",
+  "main": "dist/cjs/index.js",
+  "module": "dist/es/index.js",
+  "types": "dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/cjs/index.js",
+      "import": "./dist/es/index.js",
+      "types": "./dist/types/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rimraf dist && pnpm build:esm && pnpm build:cjs",
+    "build:esm": "tsc --module esnext --outDir dist/es",
+    "build:cjs": "tsc --module commonjs --outDir dist/cjs"
+  },
+  "dependencies": {
+    "local-pkg": "^0.5.0"
+  },
+  "devDependencies": {
+    "unplugin-vue-components": "^0.26.0"
+  }
+}
