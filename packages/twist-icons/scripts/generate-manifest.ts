@@ -10,15 +10,13 @@ export async function generateManifest(
   const manifestTemplate = getTemplate('icon-types-manifest.ejs')
   const { LIB_ESM, LIB_CJS } = buildConfig
 
-  const iconInfo = config.map((icon: IconManifest) => {
-    return {
-      id: icon.id,
-      name: icon.name,
-      license: icon.license,
-      licenseUrl: icon.licenseUrl,
-      projectUrl: icon.projectUrl
-    }
-  })
+  const iconInfo = config.map((icon: IconManifest) => ({
+    id: icon.id,
+    name: icon.name,
+    license: icon.license,
+    licenseUrl: icon.licenseUrl,
+    projectUrl: icon.projectUrl
+  }))
   const IconManifest = JSON.stringify(iconInfo, null, 2)
 
   // generate esm manifest.js

@@ -25,7 +25,7 @@
     "object-curly-spacing": ["error", "always"],
     "import/no-extraneous-dependencies": "off",
     "import/no-relative-packages": "off",
-    "arrow-body-style": ["error", "as-needed", { "requireReturnForObjectLiteral": true }],
+    "arrow-body-style": ["error", "as-needed"],
     "object-curly-newline": "off",
     "no-unused-expressions": "off",
     "array-callback-return": "off",
@@ -44,6 +44,12 @@
         "destructuring": "all"
       }
     ],
-    "no-underscore-dangle": "off"
+    "no-underscore-dangle": "off",
+    "import/no-unresolved": [
+      "error",
+      {
+        "ignore": ["unplugin-vue-components/.+"]
+      }
+    ]
   }
 }
