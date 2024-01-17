@@ -18,7 +18,7 @@ import { generateManifest } from './generate-manifest'
 
 async function task(name: string, fn: () => Promise<void>) {
   const start = performance.now()
-  print.cyan(`================= ${name} =================`)
+  print.lightMagenta(`================= ${name} =================`)
   await fn()
   const end = performance.now()
   print.cyan(`${name}:${Math.floor(end - start) / 1000} sec`)

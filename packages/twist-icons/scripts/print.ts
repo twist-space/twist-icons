@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { red, green, cyan, blue, yellow } from 'kolorist'
+import { red, green, cyan, blue, yellow, lightMagenta } from 'kolorist'
 
 const print = {
   error(msg: string) {
@@ -13,6 +13,9 @@ const print = {
   },
   blue(msg: string) {
     console.log(blue(msg))
+  },
+  lightMagenta(msg: string) {
+    console.log(lightMagenta(msg))
   },
   warning(msg: string) {
     console.log(yellow(msg))
