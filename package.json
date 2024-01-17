@@ -5,6 +5,9 @@
   "description": "A set of high-quality SVG icon components for you to use in your Vue、React projects.",
   "author": "razzh7 <razzhavenir@163.com>",
   "license": "MIT",
+  "engines": {
+    "node": "16.x"
+  },
   "scripts": {
     "init": "./init.sh",
     "build:plugins": "pnpm -C ./packages/plugins run build",
