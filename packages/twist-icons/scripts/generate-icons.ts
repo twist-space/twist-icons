@@ -3,6 +3,7 @@ import fse from 'fs-extra'
 import { parseXml, XmlElement } from '@rgrove/parse-xml'
 import path from 'path'
 import camelCase from 'lodash.camelcase'
+import { locate } from '@iconify/json'
 import { IconConfig } from './config'
 import { getTemplate } from './utils'
 import type { FrameNameType } from './types'
@@ -57,9 +58,10 @@ export async function generateIconsModule(
   const iconTypesTemplate = getTemplate('icon-types-module.ejs')
   const {
     id,
-    iconifyPath,
+    prefix,
     forrmatter
   } = IconConfig
+  const iconifyPath = await locate(prefix)
   const {
     icons: iconify,
     width: generalWidth,
@@ -144,9 +146,10 @@ export async function generateIconsModuleForVue2(IconConfig: IconConfig, DIST: s
   const iconEsmHeaderTemplate = getTemplate('icon-esm-header.ejs')
   const {
     id,
-    iconifyPath,
+    prefix,
     forrmatter
   } = IconConfig
+  const iconifyPath = await locate(prefix)
   const {
     icons: iconify,
     width: generalWidth,

@@ -1,4 +1,3 @@
-import { locate } from '@iconify/json'
 import { normalizeName } from './utils'
 
 export interface IconManifest {
@@ -10,11 +9,13 @@ export interface IconManifest {
   projectUrl: string
 }
 
-export interface IconConfig extends IconManifest {
+export interface IconConfig {
+  id: string
+  // read icon json when use iconify locate
+  prefix: string
+  name: string
   description: (name: string) => string
   forrmatter: (name: string) => string
-  iconifyPath: string
-  keywords: string[]
 }
 
 export interface FrameworksConfig {
@@ -27,29 +28,35 @@ export interface FrameworksConfig {
 export const config: IconConfig[] = [
   {
     id: 'ai',
-    name: 'antd',
+    prefix: 'ant-design',
+    name: 'Ant design Icons',
     description: (prefix) =>
       `${prefix} integrated from https://github.com/ant-design/ant-design-icons`,
-    forrmatter: (name) => `Ai${normalizeName(name)}`,
-    iconifyPath: locate('ant-design') as string,
-    keywords: ['antd', 'ant-design', 'ant-design-icons'],
-    author: 'HeskeyBaozi',
-    license: 'MIT',
-    licenseUrl: 'https://github.com/ant-design/ant-design-icons/blob/master/LICENSE',
-    projectUrl: 'https://github.com/ant-design/ant-design-icons'
+    forrmatter: (name) => `Ai${normalizeName(name)}`
   },
   {
     id: 'ti',
-    name: 'tdesign',
+    prefix: 'tdesign',
+    name: 'TDesign Icons',
     description: (prefix) =>
       `${prefix} integrated from https://github.com/Tencent/tdesign-icons`,
-    forrmatter: (name) => `Ti${normalizeName(name)}`,
-    iconifyPath: locate('tdesign') as string,
-    keywords: ['tdesign', 'tdesign', 'tdesign-icons'],
-    author: 'TDesign',
-    license: 'MIT',
-    licenseUrl: 'https://github.com/Tencent/tdesign-icons/blob/main/LICENSE',
-    projectUrl: 'https://github.com/Tencent/tdesign-icons'
+    forrmatter: (name) => `Ti${normalizeName(name)}`
+  },
+  {
+    id: 'mi',
+    prefix: 'material-symbols',
+    name: 'Material Icons',
+    description: (prefix) =>
+      `${prefix} integrated from https://github.com/google/material-design-icons`,
+    forrmatter: (name) => `Mi${normalizeName(name)}`
+  },
+  {
+    id: 'si',
+    prefix: 'svg-spinners',
+    name: 'SVG Spinners',
+    description: (prefix) =>
+      `${prefix} integrated from https://github.com/n3r4zzurr0/svg-spinners`,
+    forrmatter: (name) => `Si${normalizeName(name)}`
   }
 ]
 
