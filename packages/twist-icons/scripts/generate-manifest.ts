@@ -25,14 +25,16 @@ export async function generateManifest(
     config.map(async (icon: IconConfig) => {
       const iconifyPath = await locate(icon.prefix)
       const { info: { author, license } } = await fse.readJson(iconifyPath)
-
-      return {
+      const iconManifest: IconManifestType = {
         id: icon.id,
         name: icon.name,
         author: author.name,
+        projectUrl: author.url,
         license: license.title,
         licenseUrl: license.url
       }
+
+      return iconManifest
     })
   ).then(
     async (iconManifest) => {
