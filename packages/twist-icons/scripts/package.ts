@@ -26,7 +26,7 @@ export const packageMeta = (framename: FrameNameType, version: string) => {
     {
       name: `@twist-space/${framename}-icons`,
       version,
-      description: `${normalizeName(framename)} SVG icon components integrated from antd-design-icons and tdesign-icons`,
+      description: `${normalizeName(framename)} SVG icon packs powered by Iconify`,
       ...packageMataBase,
       devDependencies
     },
