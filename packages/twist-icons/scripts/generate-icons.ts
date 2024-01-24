@@ -65,15 +65,16 @@ export async function generateIconsModule(
   const {
     icons: iconify,
     width: generalWidth,
-    height: generalHeight
+    height: generalHeight,
+    info
   } = await fse.readJson(iconifyPath)
 
   if (iconify) {
     Object.keys(iconify).forEach(async (iconNameRaw) => {
       const { body, width, height } = iconify[iconNameRaw]
       const pascalIconName = forrmatter(iconNameRaw)
-      const mergedWidth = width || generalWidth
-      const mergeHeight = height || generalHeight
+      const mergedWidth = width || generalWidth || info?.height
+      const mergeHeight = height || generalHeight || info?.height
       const rawIcon = `<svg viewBox="0 0 ${mergedWidth} ${mergeHeight}">${body}</svg>`
       const svgIconNode = parseXml(rawIcon)
 
