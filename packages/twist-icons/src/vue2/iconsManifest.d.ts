@@ -5,5 +5,6 @@ export interface IconManifestType {
   projectUrl: string;
   license: string;
   licenseUrl: string;
+  total: number;
 }
 export declare const IconsManifest: IconManifestType[]

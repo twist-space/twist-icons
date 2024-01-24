@@ -57,6 +57,38 @@ export const config: IconConfig[] = [
     description: (prefix) =>
       `${prefix} integrated from https://github.com/n3r4zzurr0/svg-spinners`,
     forrmatter: (name) => `Si${normalizeName(name)}`
+  },
+  {
+    id: 'ion',
+    prefix: 'ion',
+    name: 'IonIcons',
+    description: (prefix) =>
+      `${prefix} integrated from https://github.com/ionic-team/ionicons`,
+    forrmatter: (name) => `Ion${normalizeName(name)}`
+  },
+  {
+    id: 'ta',
+    prefix: 'tabler',
+    name: 'Tabler Icons',
+    description: (prefix) =>
+      `${prefix} integrated from https://github.com/tabler/tabler-icons`,
+    forrmatter: (name) => `Ta${normalizeName(name)}`
+  },
+  {
+    id: 'bi',
+    prefix: 'bi',
+    name: 'Bootstrap Icons',
+    description: (prefix) =>
+      `${prefix} integrated from https://github.com/twbs/icons`,
+    forrmatter: (name) => `Bi${normalizeName(name)}`
+  },
+  {
+    id: 'mdi',
+    prefix: 'mdi',
+    name: 'Material Design Icons',
+    description: (prefix) =>
+      `${prefix} integrated from https://github.com/Templarian/MaterialDesign`,
+    forrmatter: (name) => `Mdi${normalizeName(name)}`
   }
 ]
 

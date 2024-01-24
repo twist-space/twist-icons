@@ -13,6 +13,7 @@ export interface IconManifestType {
   license: string
   licenseUrl: string
   projectUrl: string
+  total: number
 }
 
 export async function generateManifest(
@@ -24,14 +25,15 @@ export async function generateManifest(
   await Promise.all(
     config.map(async (icon: IconConfig) => {
       const iconifyPath = await locate(icon.prefix)
-      const { info: { author, license } } = await fse.readJson(iconifyPath)
+      const { info: { author, license, total } } = await fse.readJson(iconifyPath)
       const iconManifest: IconManifestType = {
         id: icon.id,
         name: icon.name,
         author: author.name,
         projectUrl: author.url,
         license: license.title,
-        licenseUrl: license.url
+        licenseUrl: license.url,
+        total
       }
 
       return iconManifest
