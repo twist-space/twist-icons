@@ -39,6 +39,7 @@
     "lodash.template": "^4.5.0",
     "lodash.upperfirst": "^4.3.1",
     "minimist": "^1.2.8",
+    "npm-check-updates": "^16.14.12",
     "vue": "^3.3.9"
   }
 }
