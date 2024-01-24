@@ -15,6 +15,7 @@ import {
   generateIconsModuleForVue2
 } from './generate-icons'
 import { generateManifest } from './generate-manifest'
+import { checkIconifyVersion } from './check-version'
 
 async function task(name: string, fn: () => Promise<void>) {
   const start = performance.now()
@@ -82,6 +83,7 @@ async function main() {
     react
   } = minimist<FrameNameType>(process.argv.slice(2))
 
+  await checkIconifyVersion()
   vue2 && await generateVue2Icons()
   vue3 && await generateVue3Icons()
   react && await generateReactIcons()
