@@ -2,6 +2,7 @@ import { execa } from 'execa'
 import minimist from 'minimist'
 import { Vue2BuildConfig, Vue3BuildConfig, ReactBuildConfig } from './build.config'
 import { spinner } from './utils'
+import { version } from './version'
 import type { FrameNameType } from './types'
 
 export interface PublishConfig {
@@ -16,7 +17,7 @@ async function release(publishConifg: PublishConfig) {
     await execa('npm', ['publish', '--access=public'], {
       cwd: PKG_PATH
     })
-    s.succeed(`Publishing ${PKG_NAME} successfully!`)
+    s.succeed(`Publishing ${PKG_NAME} v${version} successfully!`)
   } catch (error) {
     s.fail(error)
   }
