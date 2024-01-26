@@ -14,7 +14,6 @@ export interface IconConfig {
   // read icon json when use iconify locate
   prefix: string
   name: string
-  description: (name: string) => string
   forrmatter: (name: string) => string
 }
 
@@ -30,65 +29,73 @@ export const config: IconConfig[] = [
     id: 'ai',
     prefix: 'ant-design',
     name: 'Ant design Icons',
-    description: (prefix) =>
-      `${prefix} integrated from https://github.com/ant-design/ant-design-icons`,
     forrmatter: (name) => `Ai${normalizeName(name)}`
   },
   {
     id: 'ti',
     prefix: 'tdesign',
     name: 'TDesign Icons',
-    description: (prefix) =>
-      `${prefix} integrated from https://github.com/Tencent/tdesign-icons`,
     forrmatter: (name) => `Ti${normalizeName(name)}`
   },
   {
     id: 'mi',
     prefix: 'material-symbols',
     name: 'Material Icons',
-    description: (prefix) =>
-      `${prefix} integrated from https://github.com/google/material-design-icons`,
     forrmatter: (name) => `Mi${normalizeName(name)}`
   },
   {
     id: 'si',
     prefix: 'svg-spinners',
     name: 'SVG Spinners',
-    description: (prefix) =>
-      `${prefix} integrated from https://github.com/n3r4zzurr0/svg-spinners`,
     forrmatter: (name) => `Si${normalizeName(name)}`
   },
   {
     id: 'ion',
     prefix: 'ion',
     name: 'IonIcons',
-    description: (prefix) =>
-      `${prefix} integrated from https://github.com/ionic-team/ionicons`,
     forrmatter: (name) => `Ion${normalizeName(name)}`
   },
   {
     id: 'ta',
     prefix: 'tabler',
     name: 'Tabler Icons',
-    description: (prefix) =>
-      `${prefix} integrated from https://github.com/tabler/tabler-icons`,
     forrmatter: (name) => `Ta${normalizeName(name)}`
   },
   {
     id: 'bi',
     prefix: 'bi',
     name: 'Bootstrap Icons',
-    description: (prefix) =>
-      `${prefix} integrated from https://github.com/twbs/icons`,
     forrmatter: (name) => `Bi${normalizeName(name)}`
   },
   {
     id: 'mdi',
     prefix: 'mdi',
     name: 'Material Design Icons',
-    description: (prefix) =>
-      `${prefix} integrated from https://github.com/Templarian/MaterialDesign`,
     forrmatter: (name) => `Mdi${normalizeName(name)}`
+  },
+  {
+    id: 'ra',
+    prefix: 'radix-icons',
+    name: 'Radix Icons',
+    forrmatter: (name) => `Ra${normalizeName(name)}`
+  },
+  {
+    id: 'sk',
+    prefix: 'skill-icons',
+    name: 'Skill Icons',
+    forrmatter: (name) => `Sk${normalizeName(name)}`
+  },
+  {
+    id: 'gg',
+    prefix: 'gg',
+    name: 'css.gg',
+    forrmatter: (name) => `Gg${normalizeName(name)}`
+  },
+  {
+    id: 'so',
+    prefix: 'solar',
+    name: 'Solar',
+    forrmatter: (name) => `So${normalizeName(name)}`
   }
 ]
 
