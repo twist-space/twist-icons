@@ -1,7 +1,7 @@
 import { execa } from 'execa'
 import minimist from 'minimist'
 import { Vue2BuildConfig, Vue3BuildConfig, ReactBuildConfig } from './build.config'
-import print from './print'
+import { spinner } from './utils'
 import type { FrameNameType } from './types'
 
 export interface PublishConfig {
@@ -11,14 +11,14 @@ export interface PublishConfig {
 
 async function release(publishConifg: PublishConfig) {
   const { PKG_NAME, PKG_PATH } = publishConifg
+  const s = spinner(`Publishing ${PKG_NAME}`).start()
   try {
-    print.cyan(`Publishing ${PKG_NAME}...`)
     await execa('npm', ['publish', '--access=public'], {
       cwd: PKG_PATH
     })
-    print.success(`Publishing ${PKG_NAME} successfully!`)
-  } catch (err) {
-    print.error(err)
+    s.succeed(`Publishing ${PKG_NAME} successfully!`)
+  } catch (error) {
+    s.fail(error)
   }
 }
 

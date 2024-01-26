@@ -4,6 +4,7 @@ import path from 'path'
 import template from 'lodash.template'
 import upperFirst from 'lodash.upperfirst'
 import camelCase from 'lodash.camelcase'
+import ora from 'ora'
 import type { modules, BabelConfig } from './types'
 
 export function normalizeName(name: string) {
@@ -47,4 +48,8 @@ export function getBabelConfig(
 
 export function slash(str: string) {
   return str.replace(/\\/g, '/')
+}
+
+export function spinner(str: string) {
+  return ora(str).start()
 }

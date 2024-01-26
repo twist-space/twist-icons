@@ -1,5 +1,4 @@
 import minimist from 'minimist'
-import print from './print'
 import { generateDir } from './generate-dir'
 import { generateEntry } from './generate-entry'
 import { buildComponents } from './build'
@@ -16,62 +15,65 @@ import {
 } from './generate-icons'
 import { generateManifest } from './generate-manifest'
 import { checkIconifyVersion } from './check-version'
+import { spinner } from './utils'
 
 async function task(name: string, fn: () => Promise<void>) {
-  const start = performance.now()
-  print.lightMagenta(`================= ${name} =================`)
-  await fn()
-  const end = performance.now()
-  print.cyan(`${name}:${Math.floor(end - start) / 1000} sec`)
+  const s = spinner(name)
+  try {
+    await fn()
+    s.succeed(`${name} successfully`)
+  } catch (error) {
+    s.fail(error)
+  }
 }
 
 async function generateReactIcons() {
   const { DIST } = ReactBuildConfig
-  await task('initialize react icons', async () => {
+  await task('Initialize react icons', async () => {
     await generateDir(ReactBuildConfig, 'react')
     await generateEntry(DIST)
     await generateManifest(ReactBuildConfig)
   })
-  await task('generate react icons module', async () => {
+  await task('Generate react icons module', async () => {
     await Promise.all(
       config.map((IconConfig) => generateIconsModule(IconConfig, DIST, 'react'))
     )
   })
-  await task('build react icons', async () => {
+  await task('Build react icons', async () => {
     await buildComponents()
   })
 }
 
 async function generateVue3Icons() {
   const { DIST } = Vue3BuildConfig
-  await task('initialize vue3 icons', async () => {
+  await task('Initialize vue3 icons', async () => {
     await generateDir(Vue3BuildConfig, 'vue3')
     await generateEntry(DIST)
     await generateManifest(Vue3BuildConfig)
   })
-  await task('generate vue3 icons module', async () => {
+  await task('Generate vue3 icons module', async () => {
     await Promise.all(
       config.map((IconConfig) => generateIconsModule(IconConfig, DIST, 'vue3'))
     )
   })
-  await task('build vue3 icons', async () => {
+  await task('Build vue3 icons', async () => {
     await buildComponents('vue3')
   })
 }
 
 async function generateVue2Icons() {
   const { DIST } = Vue2BuildConfig
-  await task('initialize vue2 icons', async () => {
+  await task('Initialize vue2 icons', async () => {
     await generateDir(Vue2BuildConfig, 'vue2')
     await generateEntry(DIST, false)
     await generateManifest(Vue2BuildConfig)
   })
-  await task('generate vue2 icons module', async () => {
+  await task('Generate vue2 icons module', async () => {
     await Promise.all(
       config.map((IconConfig) => generateIconsModuleForVue2(IconConfig, DIST))
     )
   })
-  await task('build vue2 icons', async () => {
+  await task('Build vue2 icons', async () => {
     await buildComponents('vue2')
   })
 }
