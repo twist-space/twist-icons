@@ -85,13 +85,36 @@ export function IconBase(props: IconProps): React.JSX.Element {
     elem(DefaultContext)
 }
 
+export function normalizeStyle(styleString: string) {
+  const styleObj: Record<string, string> = {}
+  const styles = styleString.split(';')
+
+  for (const style of styles) {
+    const [property, value] = style.split(':')
+    if (property && value) {
+      // Convert camelCase to JSX style
+      const formattedProperty = property.trim().replace(/-./g, (match) =>
+        match.charAt(1).toUpperCase())
+      styleObj[formattedProperty] = value.trim()
+    }
+  }
+
+  return styleObj
+}
+
 export function renderHelper(node: AbstractNode[]): React.ReactElement[] {
   return (
     node &&
     node.map((node, i) => (
       React.createElement(
         node.tag,
-        { key: i, ...node.attrs },
+        {
+          ...node.attrs,
+          key: i,
+          style: node.attrs.style
+            ? normalizeStyle(node.attrs.style)
+            : null
+        },
         renderHelper(node.children)
       )
     ))
