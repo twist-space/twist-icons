@@ -1,4 +1,8 @@
 # TwistIcons
+
+React Icons [![npm version]](https://img.shields.io/npm/v/@twist-space/react-icons/latest.svg)  
+Vue3 Icons [![npm version]](https://img.shields.io/npm/v/@twist-space/vue3-icons/latest.svg)  
+Vue2 Icons [![npm version]](https://img.shields.io/npm/v/@twist-space/vue2-icons/latest.svg)
 English | [简体中文](README.zh.md)
 
 Twist-Icons 是一套高质量的 SVG 图标库，它收集了流行的图标，提供了 React、Vue、Vue2 Icons 组件，你可以通过 ES6 的 import 方式轻松使用它们
