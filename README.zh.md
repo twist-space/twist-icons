@@ -1,12 +1,16 @@
-# TwistIcons
+# twist-icons
 
-React Icons [![npm version]](https://img.shields.io/npm/v/@twist-space/react-icons/latest.svg)  
-Vue3 Icons [![npm version]](https://img.shields.io/npm/v/@twist-space/vue3-icons/latest.svg)  
-Vue2 Icons [![npm version]](https://img.shields.io/npm/v/@twist-space/vue2-icons/latest.svg)
-English | [简体中文](README.zh.md)
+| package                 | version |
+| ------------------------| --------|
+| @twist-space/react-icons| [![npm version](https://img.shields.io/npm/v/@twist-space/react-icons.svg)](https://www.npmjs.com/package/@twist-space/react-icons) |
+| @twist-space/vue3-icons | [![npm version](https://img.shields.io/npm/v/@twist-space/vue3-icons.svg)](https://www.npmjs.com/package/@twist-space/vue3-icons)|
+| @twist-space/vue2-icons | [![npm version](https://img.shields.io/npm/v/@twist-space/vue2-icons.svg)](https://www.npmjs.com/package/@twist-space/vue2-icons)|
+
+[English](README.md) | 简体中文
 
 Twist-Icons 是一套高质量的 SVG 图标库，它收集了流行的图标，提供了 React、Vue、Vue2 Icons 组件，你可以通过 ES6 的 import 方式轻松使用它们
 
+react Icons [![npm version](https://img.shields.io/npm/v/@twist-space/react-icons.svg)](https://www.npmjs.com/package/@twist-space/react-icons) vue3 Icons [![npm version](https://img.shields.io/npm/v/@twist-space/vue3-icons.svg)](https://www.npmjs.com/package/@twist-space/vue3-icons) vue2 Icons [![npm version](https://img.shields.io/npm/v/@twist-space/vue2-icons.svg)](https://www.npmjs.com/package/@twist-space/vue2-icons)  
 ## 开始使用
 
 ### React

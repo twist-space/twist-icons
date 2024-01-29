@@ -1,8 +1,10 @@
 # twist-icons
 
-React Icons [![npm version]](https://img.shields.io/npm/v/@twist-space/react-icons/latest.svg)  
-Vue3 Icons [![npm version]](https://img.shields.io/npm/v/@twist-space/vue3-icons/latest.svg)  
-Vue2 Icons [![npm version]](https://img.shields.io/npm/v/@twist-space/vue2-icons/latest.svg)
+| package                 | version |
+| ------------------------| --------|
+| @twist-space/react-icons| [![npm version](https://img.shields.io/npm/v/@twist-space/react-icons.svg)](https://www.npmjs.com/package/@twist-space/react-icons) |
+| @twist-space/vue3-icons | [![npm version](https://img.shields.io/npm/v/@twist-space/vue3-icons.svg)](https://www.npmjs.com/package/@twist-space/vue3-icons)|
+| @twist-space/vue2-icons | [![npm version](https://img.shields.io/npm/v/@twist-space/vue2-icons.svg)](https://www.npmjs.com/package/@twist-space/vue2-icons)|
 
 English | [简体中文](README.zh.md)
 
