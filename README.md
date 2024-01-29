@@ -1,12 +1,12 @@
 # twist-icons
 
+English | [简体中文](README.zh.md)
+
 | package                 | version |
 | ------------------------| --------|
 | @twist-space/react-icons| [![npm version](https://img.shields.io/npm/v/@twist-space/react-icons.svg)](https://www.npmjs.com/package/@twist-space/react-icons) |
 | @twist-space/vue3-icons | [![npm version](https://img.shields.io/npm/v/@twist-space/vue3-icons.svg)](https://www.npmjs.com/package/@twist-space/vue3-icons)|
 | @twist-space/vue2-icons | [![npm version](https://img.shields.io/npm/v/@twist-space/vue2-icons.svg)](https://www.npmjs.com/package/@twist-space/vue2-icons)|
-
-English | [简体中文](README.zh.md)
 
 Twist-Icons is a set of high-quality SVG icon libraries. It collection popular Icons provide React、Vue and Vue2 Icons component, you can easy use them with ES6 import.
 
