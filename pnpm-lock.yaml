@@ -196,8 +196,8 @@ importers:
         specifier: ^7.23.2
         version: 7.23.2(@babel/core@7.23.2)
       '@iconify/json':
-        specifier: ^2.2.175
-        version: 2.2.175
+        specifier: ^2.2.186
+        version: 2.2.186
       '@iconify/types':
         specifier: ^2.0.0
         version: 2.0.0
@@ -2147,11 +2147,11 @@ packages:
     engines: {node: '>=10.13.0'}
     dev: true
 
-  /@iconify/json@2.2.175:
-    resolution: {integrity: sha512-/Ds/BSUv4++rTf0+KoGXHKSapCRXBqqSVG3h2Sci3jEgWxLpgfCZ4bOjOWGa5i+tURgde6VYOaTaX8u0xDnoAw==}
+  /@iconify/json@2.2.186:
+    resolution: {integrity: sha512-Qcg7WA0fSOZJuBcNY5lZWbIZVLhdjYxI4kNxq1gWF5G5vFiBr2Xa1ScIKsvcKQwVSGax9E5tbTAHgdvgdr+IMQ==}
     dependencies:
       '@iconify/types': 2.0.0
-      pathe: 1.1.1
+      pathe: 1.1.2
     dev: true
 
   /@iconify/types@2.0.0:
@@ -7039,6 +7039,10 @@ packages:
 
   /pathe@1.1.1:
     resolution: {integrity: sha512-d+RQGp0MAYTIaDBIMmOfMwz3E+LOZnxx1HZd5R18mmCZY0QBlK0LDZfPc8FW8Ed2DlvsuE6PRjroDY+wg4+j/Q==}
+
+  /pathe@1.1.2:
+    resolution: {integrity: sha512-whLdWMYL2TwI08hn8/ZqAbrVemu0LNaNNJZX73O6qaIdCTfXutsLhMkjdENX0qhsQ9uIimo4/aQOmXkoon2nDQ==}
+    dev: true
 
   /pathval@1.1.1:
     resolution: {integrity: sha512-Dp6zGqpTdETdR63lehJYPeIOqpiNBNtc7BpWSLrOje7UaIsE5aY92r/AunQA7rsXvet3lrJ3JnZX29UPTKXyKQ==}
