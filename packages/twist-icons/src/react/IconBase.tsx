@@ -56,9 +56,7 @@ export function IconBase(props: IconProps): React.JSX.Element {
 
     return (
       <svg
-        stroke="currentColor"
-        fill="currentColor"
-        strokeWidth="0"
+        xmlns="http://www.w3.org/2000/svg"
         {...config.attrs}
         {...attrs}
         {...svgProps}
@@ -72,7 +70,6 @@ export function IconBase(props: IconProps): React.JSX.Element {
         }}
         width={mergedSize}
         height={mergedSize}
-        xmlns="http://www.w3.org/2000/svg"
       >
         {title && <title>{title}</title>}
         {props.children}

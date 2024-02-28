@@ -60,9 +60,7 @@ export function IconBase(props: IconProps, { slots, attrs }) {
 
   return (
     <svg
-      stroke="currentColor"
-      fill="currentColor"
-      stroke-width="0"
+      xmlns="http://www.w3.org/2000/svg"
       {...config.attrs}
       {...attrs}
       {...svgProps}
@@ -76,7 +74,6 @@ export function IconBase(props: IconProps, { slots, attrs }) {
       }}
       width={mergedSize}
       height={mergedSize}
-      xmlns="http://www.w3.org/2000/svg"
     >
       {titleTag}
       {children}

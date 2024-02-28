@@ -63,9 +63,7 @@ export const GenIcon = (icon) => {
 
       return (
         <svg
-          stroke="currentColor"
-          fill="currentColor"
-          stroke-width="0"
+          xmlns="http://www.w3.org/2000/svg"
           {...svgProps}
           class={className}
           style={{
@@ -76,7 +74,6 @@ export const GenIcon = (icon) => {
           }}
           width={mergeSize}
           height={mergeSize}
-          xmlns="http://www.w3.org/2000/svg"
         >
           {title && <title>{title}</title>}
           {renderHelper(h, abstractNode.children)}
