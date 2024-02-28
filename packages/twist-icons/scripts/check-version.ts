@@ -21,3 +21,13 @@ export async function checkIconifyVersion() {
     s.fail(error)
   }
 }
+
+export function checkNodeVersion() {
+  const s = spinner()
+  const [major] = process.versions.node.split('.').map(Number)
+  if (major !== 16) {
+    // eslint-disable-next-line no-console
+    s.fail('Nodejs version must be 16.x')
+    process.exit(1)
+  }
+}

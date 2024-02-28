@@ -50,6 +50,6 @@ export function slash(str: string) {
   return str.replace(/\\/g, '/')
 }
 
-export function spinner(str: string) {
-  return ora(str).start()
+export function spinner(str?: string) {
+  return ora(str)
 }
