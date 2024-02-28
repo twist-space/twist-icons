@@ -1,4 +1,4 @@
-# twist-icons
+# [twist-icons](twist-icons-docs.vercel.app/)
 
 English | [简体中文](README.zh.md)
 
@@ -133,7 +133,7 @@ export default defineConfig({
     Components({
       resolvers: [
         TwistIconsVueResolver({
-          version: 'vue3'
+          version: 'vue3' // or vue2
         })
       ]
     })
