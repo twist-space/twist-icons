@@ -96,6 +96,30 @@ export const config: IconConfig[] = [
     prefix: 'solar',
     name: 'Solar',
     forrmatter: (name) => `So${normalizeName(name)}`
+  },
+  {
+    id: 'ep',
+    prefix: 'ep',
+    name: 'Element Plus',
+    forrmatter: (name) => `Ep${normalizeName(name)}`
+  },
+  {
+    id: 'su',
+    prefix: 'system-uicons',
+    name: 'system-uicons',
+    forrmatter: (name) => `Su${normalizeName(name)}`
+  },
+  {
+    id: 'ph',
+    prefix: 'ph',
+    name: 'Phosphor',
+    forrmatter: (name) => `Ph${normalizeName(name)}`
+  },
+  {
+    id: 'te',
+    prefix: 'twemoji',
+    name: 'Twitter Emoji',
+    forrmatter: (name) => `Te${normalizeName(name)}`
   }
 ]
 

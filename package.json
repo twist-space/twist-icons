@@ -6,7 +6,7 @@
   "author": "razzh7 <razzhavenir@163.com>",
   "license": "MIT",
   "engines": {
-    "node": ">=16.x"
+    "node": "16.x"
   },
   "scripts": {
     "init": "./init.sh",
