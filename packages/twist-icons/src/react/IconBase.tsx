@@ -29,6 +29,7 @@ export function IconBase(props: IconProps): React.JSX.Element {
     title,
     spin,
     rotate,
+    color,
     ...svgProps
   } = props
   const GlobalConfig = React.useContext(IconContext)
@@ -62,7 +63,7 @@ export function IconBase(props: IconProps): React.JSX.Element {
         {...svgProps}
         className={className}
         style={{
-          color: props.color || config.color,
+          color: color || config.color,
           msTransform,
           transform,
           ...config.style,

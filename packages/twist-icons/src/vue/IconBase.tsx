@@ -33,6 +33,7 @@ export function IconBase(props: IconProps, { slots, attrs }) {
     title,
     spin,
     rotate,
+    color,
     ...svgProps
   } = props
   const children = slots.default && slots.default()
@@ -66,7 +67,7 @@ export function IconBase(props: IconProps, { slots, attrs }) {
       {...svgProps}
       class={className}
       style={{
-        color: props?.color || config.color,
+        color: color || config.color,
         msTransform,
         transform,
         ...config.style,
