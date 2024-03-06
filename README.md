@@ -141,7 +141,7 @@ export default defineConfig({
 })
 ```
 
-> TIP: The above content using unplugin plugins is also applicable to Webpack, you only need to switch the path of the plugin introduction.
+> Note: The above content using unplugin plugins is also applicable to Webpack, you only need to switch the path of the plugin introduction.
 
 ### Thanks
 
