@@ -8,7 +8,7 @@
 | @twist-space/vue3-icons | [![npm version](https://img.shields.io/npm/v/@twist-space/vue3-icons.svg)](https://www.npmjs.com/package/@twist-space/vue3-icons)|
 | @twist-space/vue2-icons | [![npm version](https://img.shields.io/npm/v/@twist-space/vue2-icons.svg)](https://www.npmjs.com/package/@twist-space/vue2-icons)|
 
-Twist-Icons 是一套高质量的 SVG 图标库，它收集了流行的图标，提供了 React、Vue、Vue2 Icons 组件，你可以通过 ES6 的 import 方式轻松使用它们
+Twist-Icons 是一套高质量的 SVG 图标库，它收集了流行的图标，提供了 React、Vue、Vue2 Icons 组件，你可以通过 ES6 的 import 方式轻松使用它们，[这篇文章](https://razzh.vercel.app/posts/twist-icons/)介绍了我创作的心路历程。
 
 ## 开始使用
 
