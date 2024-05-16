@@ -49,9 +49,6 @@ importers:
       husky:
         specifier: ^8.0.3
         version: 8.0.3
-      install:
-        specifier: ^0.13.0
-        version: 0.13.0
       jsdom:
         specifier: ^23.0.1
         version: 23.0.1
@@ -5504,11 +5501,6 @@ packages:
   /ini@4.1.1:
     resolution: {integrity: sha512-QQnnxNyfvmHFIsj7gkPcYymR8Jdw/o7mp5ZFihxn6h8Ci6fh3Dx4E1gPjpQEpIuPo9XVNY/ZUwh4BPMjGyL01g==}
     engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
-    dev: true
-
-  /install@0.13.0:
-    resolution: {integrity: sha512-zDml/jzr2PKU9I8J/xyZBQn8rPCAY//UOYNmR01XwNwyfhEWObo2SWfSl1+0tm1u6PhxLwDnfsT/6jB7OUxqFA==}
-    engines: {node: '>= 0.10'}
     dev: true
 
   /internal-slot@1.0.6:
