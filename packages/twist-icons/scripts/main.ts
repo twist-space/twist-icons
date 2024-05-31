@@ -94,7 +94,7 @@ async function main() {
   } = minimist<FrameNameType>(process.argv.slice(2))
 
   await checkNodeVersion()
-  // await checkIconifyVersion()
+  await checkIconifyVersion()
   await emptyDirs()
   vue2 && await generateVue2Icons()
   vue3 && await generateVue3Icons()
