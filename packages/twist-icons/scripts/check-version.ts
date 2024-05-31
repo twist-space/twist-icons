@@ -19,6 +19,7 @@ export async function checkIconifyVersion() {
     s.succeed(`${packageName} is up to date, start build icons :)`)
   } catch (error) {
     s.fail(error)
+    console.error(error)
   }
 }
 
