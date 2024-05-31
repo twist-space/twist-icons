@@ -80,7 +80,7 @@ importers:
   examples/react:
     dependencies:
       '@twist-space/react-icons':
-        specifier: workspace:*
+        specifier: 0.2.17
         version: link:../../packages/_react-icons
       react:
         specifier: ^18.2.0
@@ -126,7 +126,7 @@ importers:
   examples/vite-vue3:
     dependencies:
       '@twist-space/vue3-icons':
-        specifier: workspace:*
+        specifier: 0.2.17
         version: link:../../packages/_vue-icons
       vue:
         specifier: ^3.3.4
@@ -189,8 +189,8 @@ importers:
         specifier: ^7.23.2
         version: 7.23.2(@babel/core@7.23.2)
       '@iconify/json':
-        specifier: ^2.2.204
-        version: 2.2.204
+        specifier: 2.2.214
+        version: 2.2.214
       '@iconify/types':
         specifier: ^2.0.0
         version: 2.0.0
@@ -2140,8 +2140,8 @@ packages:
     engines: {node: '>=10.13.0'}
     dev: true
 
-  /@iconify/json@2.2.204:
-    resolution: {integrity: sha512-sFlh+TIF54DZoEzsF5YVWY7XEzjN2ZSmCjtzvajk5EdNjvPAKr9Tvvptoyj6hcuylJsDxiU12FRDSdygW1c8bg==}
+  /@iconify/json@2.2.214:
+    resolution: {integrity: sha512-EVdAczIPBz1gcXVSHrEe0vBl6x4lcG7Dw95tO0o/h2SPTXKigEvV1cufe8yFFNuBHKqv/n1XTwqCZX0ontKTtw==}
     dependencies:
       '@iconify/types': 2.0.0
       pathe: 1.1.2
