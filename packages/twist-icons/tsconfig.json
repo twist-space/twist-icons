@@ -1,7 +1,17 @@
 {
-  "references": [
-    { "path": "./tsconfig.base.json" },
-    { "path": "./tsconfig.react.esm.json" },
-    { "path": "./tsconfig.vue.esm.json" }
-  ]
+  "compilerOptions": {
+    "module": "es6",
+    "target": "ES2017",
+    "declaration": true,
+    "skipLibCheck": true,
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "lib": ["dom","esnext", "ES2017"],
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "exclude": ["node_modules"],
+  "include": ["scripts/**/*"]
 }

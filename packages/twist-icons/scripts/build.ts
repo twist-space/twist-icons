@@ -1,6 +1,7 @@
 import { execa } from 'execa'
 import path from 'path'
 import fs from 'fs/promises'
+import fse from 'fs-extra'
 import { transformSync } from '@babel/core'
 import glob from 'fast-glob'
 import print from './print'
@@ -47,6 +48,9 @@ async function buildReact() {
     TSCONFIG_ESM
   } = ReactBuildConfig
   try {
+    // clear build dir
+    await fse.emptydir(BUILD_CJS)
+    await fse.emptyDir(BUILD_ESM)
     // build cjs
     await execa('npx', ['tsc', '-p', TSCONFIG_CJS])
     await copyRecursive(
@@ -68,6 +72,8 @@ async function buildVue3() {
   const {
     LIB_ESM,
     LIB_CJS,
+    BUILD_CJS,
+    BUILD_ESM,
     JSXFILES_CJS,
     JSX_FILES_ESM,
     TYPES_FILES_CJS,
@@ -79,6 +85,9 @@ async function buildVue3() {
   } = Vue3BuildConfig
 
   try {
+    // clear build dir
+    await fse.emptydir(BUILD_CJS)
+    await fse.emptyDir(BUILD_ESM)
     await execa('npx', ['tsc', '-p', TSCONFIG_CJS])
     await execa('npx', ['tsc', '-p', TSCONFIG_ESM])
     const jsxFilesCjs = await glob(JSXFILES_CJS)

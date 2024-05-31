@@ -1,4 +1,5 @@
 import minimist from 'minimist'
+import fs from 'fs-extra'
 import { generateDir } from './generate-dir'
 import { generateEntry } from './generate-entry'
 import { buildComponents } from './build'
@@ -79,6 +80,12 @@ async function generateVue2Icons() {
   })
 }
 
+async function emptyDirs() {
+  await fs.emptydir(ReactBuildConfig.DIST)
+  await fs.emptyDir(Vue3BuildConfig.DIST)
+  await fs.emptyDir(Vue2BuildConfig.DIST)
+}
+
 async function main() {
   const {
     vue2,
@@ -87,7 +94,8 @@ async function main() {
   } = minimist<FrameNameType>(process.argv.slice(2))
 
   await checkNodeVersion()
-  await checkIconifyVersion()
+  // await checkIconifyVersion()
+  await emptyDirs()
   vue2 && await generateVue2Icons()
   vue3 && await generateVue3Icons()
   react && await generateReactIcons()
