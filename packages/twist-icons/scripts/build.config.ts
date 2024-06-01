@@ -169,7 +169,7 @@ export const Vue3BuildConfig: BuildVue3Config = {
   BABEL_CONFIG_CJS: getVueBabelConfig('cjs', 3),
   BABEL_CONFIG_ESM: getVueBabelConfig(false, 3),
   VUE3_PUBLISH_CONFIG: {
-    PKG_PATH: resolve('../_vue-icons'),
+    PKG_PATH: resolve('../_vue3-icons'),
     PKG_NAME: '@twist-space/vue3-icons'
   }
 }
