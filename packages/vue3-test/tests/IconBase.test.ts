@@ -1,8 +1,8 @@
 import { mount } from '@vue/test-utils'
 import { h } from 'vue'
 import { describe, test, expect } from 'vitest'
-import { IconProvider } from '../../_vue-icons'
-import { AiAudioFilled, AiAudioTwotone } from '../../_vue-icons/ai'
+import { IconProvider } from '../../_vue3-icons'
+import { AiAudioFilled, AiAudioTwotone } from '../../_vue3-icons/ai'
 
 describe('@twist-space/vue3-icons', () => {
   test('Icon component directly render', () => {
