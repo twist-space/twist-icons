@@ -5,6 +5,7 @@ import fse from 'fs-extra'
 import { transformSync } from '@babel/core'
 import glob from 'fast-glob'
 import print from './print'
+import { getFileName } from './utils'
 import { ReactBuildConfig, Vue3BuildConfig, Vue2BuildConfig } from './build.config'
 import type { BabelConfig } from './types'
 
@@ -22,114 +23,154 @@ async function copyRecursive(src: string, dest: string) {
   }
 }
 
-async function babelify(config: BabelConfig, filePath: string, outpath: string) {
-  const fileName = path.basename(
-    filePath,
-    path.extname(filePath)
-  )
+interface BabelifyOptions {
+  config: BabelConfig
+  type: 'cjs' | 'esm'
+  filePath: string
+  outpath: string
+}
+
+async function babelify(options: BabelifyOptions): Promise<void> {
+  const { config, type, filePath, outpath } = options
+  const fileName = getFileName(filePath)
   const fileContent = await fs.readFile(filePath, 'utf-8')
+  const extname = type === 'cjs' ? 'js' : 'mjs'
+
   try {
     await fs.writeFile(
-      path.resolve(outpath, `${fileName}.js`),
+      path.resolve(outpath, `${fileName}.${extname}`),
       transformSync(fileContent, config).code
     )
   } catch (error) {
     print.error(error)
+    throw error
   }
 }
 
-async function buildReact() {
+interface BabelConfigs {
+  type: 'cjs' | 'esm'
+  config: BabelConfig
+}
+
+async function buildReactWithBable() {
   const {
-    LIB_ESM,
-    LIB_CJS,
-    BUILD_CJS,
-    BUILD_ESM,
-    TSCONFIG_CJS,
-    TSCONFIG_ESM
+    SRC,
+    LIB,
+    BUILD_PATH,
+    TSCONFIG,
+    BABEL_CONFIG_CJS,
+    BABEL_CONFIG_ESM
   } = ReactBuildConfig
+  const BabelConfigs: BabelConfigs[] = [
+    { type: 'cjs', config: BABEL_CONFIG_CJS },
+    { type: 'esm', config: BABEL_CONFIG_ESM }
+  ]
+  const transformFiles = await glob(`${SRC}/**/*.{tsx,ts}`, {
+    ignore: ['**/*.d.ts']
+  })
+
   try {
     // clear build dir
-    await fse.emptydir(BUILD_CJS)
-    await fse.emptyDir(BUILD_ESM)
-    // build cjs
-    await execa('npx', ['tsc', '-p', TSCONFIG_CJS])
-    await copyRecursive(
-      BUILD_CJS,
-      LIB_CJS
+    await fse.emptydir(BUILD_PATH)
+    // only emit declaration files
+    await execa('npx', ['tsc', '-p', TSCONFIG])
+    // then use babel transform code to build dir
+    await Promise.all(
+      BabelConfigs.map(async (item) => {
+        const { type, config } = item
+        await Promise.all(
+          transformFiles.map(async (filePath) => {
+            const code = await fs.readFile(filePath, 'utf-8')
+            const result = transformSync(code, config)
+            const fileName = getFileName(filePath)
+            const _path = type === 'esm' ? `${BUILD_PATH}/${fileName}.mjs` : `${BUILD_PATH}/${fileName}.js`
+            await fs.writeFile(_path, result.code)
+          })
+        )
+      })
     )
-    // build esm
-    await execa('npx', ['tsc', '-p', TSCONFIG_ESM])
-    await copyRecursive(
-      BUILD_ESM,
-      LIB_ESM
+    // copy .d.ts files to build dir
+    await fse.copyFile(
+      `${SRC}/iconsManifest.d.ts`,
+      `${BUILD_PATH}/iconsManifest.d.ts`
     )
+    // copy build dir files to lib dir
+    await copyRecursive(BUILD_PATH, LIB)
   } catch (error) {
     print.error(error)
+    throw error
   }
 }
 
 async function buildVue3() {
   const {
-    LIB_ESM,
-    LIB_CJS,
-    BUILD_CJS,
-    BUILD_ESM,
-    JSXFILES_CJS,
-    JSX_FILES_ESM,
-    TYPES_FILES_CJS,
-    TYPES_FILES_ESM,
-    TSCONFIG_CJS,
-    TSCONFIG_ESM,
+    SRC,
+    LIB,
+    BUILD_PATH,
+    TSCONFIG,
     BABEL_CONFIG_CJS,
     BABEL_CONFIG_ESM
   } = Vue3BuildConfig
+  const BabelConfigs: BabelConfigs[] = [
+    { type: 'cjs', config: BABEL_CONFIG_CJS },
+    { type: 'esm', config: BABEL_CONFIG_ESM }
+  ]
+  const transformFiles = await glob(`${SRC}/**/*.{tsx,ts}`, {
+    ignore: ['**/*.d.ts']
+  })
 
   try {
     // clear build dir
-    await fse.emptydir(BUILD_CJS)
-    await fse.emptyDir(BUILD_ESM)
-    await execa('npx', ['tsc', '-p', TSCONFIG_CJS])
-    await execa('npx', ['tsc', '-p', TSCONFIG_ESM])
-    const jsxFilesCjs = await glob(JSXFILES_CJS)
-    const jsxFilesEsm = await glob(JSX_FILES_ESM)
-    const typeFilesCjs = await glob(TYPES_FILES_CJS)
-    const typeFilesEsm = await glob(TYPES_FILES_ESM)
-    await Promise.all([
-      ...jsxFilesCjs.map((filePath) => babelify(BABEL_CONFIG_CJS, filePath, LIB_CJS)),
-      ...jsxFilesEsm.map((filePath) => babelify(BABEL_CONFIG_ESM, filePath, LIB_ESM)),
-      ...typeFilesCjs.map((filePath) => fs.copyFile(
-        filePath,
-        path.resolve(LIB_CJS, path.basename(filePath))
-      )),
-      ...typeFilesEsm.map((filePath) => fs.copyFile(
-        filePath,
-        path.resolve(LIB_ESM, path.basename(filePath))
-      ))
-    ])
+    await fse.emptydir(BUILD_PATH)
+    // only emit declaration files
+    await execa('npx', ['tsc', '-p', TSCONFIG])
+    // then use babel transform code to build dir
+    await Promise.all(
+      BabelConfigs.map(async (item) => {
+        const { type, config } = item
+        await Promise.all(
+          transformFiles.map(async (filePath) => {
+            await babelify({ config, type, filePath, outpath: BUILD_PATH })
+          })
+        )
+      })
+    )
+    // copy .d.ts files to build dir
+    await fse.copyFile(
+      `${SRC}/iconsManifest.d.ts`,
+      `${BUILD_PATH}/iconsManifest.d.ts`
+    )
+    // copy build dir files to lib dir
+    await copyRecursive(BUILD_PATH, LIB)
   } catch (error) {
     print.error(error)
+    throw error
   }
 }
 
 async function buildVue2() {
   const {
-    LIB_ESM,
-    LIB_CJS,
+    LIB,
     JSX_FILES,
     BABEL_CONFIG_CJS,
     BABEL_CONFIG_ESM
   } = Vue2BuildConfig
   const jsxFiles = await glob(JSX_FILES)
-  try {
-    await Promise.all(
-      jsxFiles.map((filePath) => {
-        babelify(BABEL_CONFIG_CJS, filePath, LIB_CJS)
-        babelify(BABEL_CONFIG_ESM, filePath, LIB_ESM)
-      })
-    )
-  } catch (error) {
-    print.error(error)
-  }
+
+  jsxFiles.map((filePath) => {
+    babelify({
+      config: BABEL_CONFIG_CJS,
+      type: 'cjs',
+      filePath,
+      outpath: LIB
+    })
+    babelify({
+      config: BABEL_CONFIG_ESM,
+      type: 'esm',
+      filePath,
+      outpath: LIB
+    })
+  })
 }
 
 export async function buildComponents(buildType: buildType = 'react') {
@@ -141,6 +182,6 @@ export async function buildComponents(buildType: buildType = 'react') {
     await buildVue2()
     break
   default:
-    await buildReact()
+    await buildReactWithBable()
   }
 }

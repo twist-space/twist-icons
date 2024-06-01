@@ -6,10 +6,9 @@ export async function generateEntry(
   dist: string,
   type: boolean = true
 ) {
-  const generateEntryCjs = () => 'module.exports = require(\'./lib/cjs/index.js\');'
-  const generateEntryMjs = (filename = 'index.js') => `import * as x from './lib/esm/${filename}';
-export default x;`
-
+  const generateEntryCjs = () => 'module.exports = require(\'./lib/index.js\');'
+  const generateEntryMjs = () => 'export * from \'./lib/index.esm.js\';'
+  const generateEntryDts = () => 'export * from \'./lib/index.d.ts\';'
   // generate entry file
   await fs.appendFile(
     path.resolve(dist, 'index.js'),
@@ -30,7 +29,7 @@ export default x;`
   if (type) {
     await fs.appendFile(
       path.resolve(dist, 'index.d.ts'),
-      generateEntryMjs('index.d.ts'),
+      generateEntryDts(),
       'utf-8'
     )
   }

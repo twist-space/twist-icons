@@ -9,7 +9,7 @@ dist
 
 # compiled output
 packages/_react-icons/*
-packages/_vue-icons/*
+packages/_vue3-icons/*
 packages/_vue2-icons/*
 packages/twist-icons/build/*
 

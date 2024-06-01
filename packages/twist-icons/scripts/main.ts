@@ -18,14 +18,14 @@ import { generateManifest } from './generate-manifest'
 import { checkIconifyVersion, checkNodeVersion } from './check-version'
 import { spinner } from './utils'
 
-async function task(name: string, fn: () => Promise<void>) {
+async function task(name: string, fn: () => Promise<void> | void) {
   const s = spinner(name).start()
   try {
     await fn()
     s.succeed(`${name} successfully`)
   } catch (error) {
     s.fail(error)
-    process.exit(1)
+    throw error
   }
 }
 

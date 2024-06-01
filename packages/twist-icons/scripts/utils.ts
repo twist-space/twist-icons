@@ -23,11 +23,12 @@ export function getTemplate(name: string): (data?: Record<string, string>) => st
 }
 
 /**
+ * @description Vue2/3 babel config
  * @param modules
  * false -> es6
  * cjs -> commonjs
  */
-export function getBabelConfig(
+export function getVueBabelConfig(
   modules: modules,
   version: number
 ): BabelConfig {
@@ -36,6 +37,10 @@ export function getBabelConfig(
       ? [['@vue/babel-plugin-jsx', { mergeProps: false, enableObjectSlots: false }]]
       : []
   const presets: BabelConfig['presets'] = [['@babel/preset-env', { modules }]]
+
+  if (version === 3) {
+    presets.push(['@babel/preset-typescript', { isTSX: true, allExtensions: true }])
+  }
   if (version === 2) {
     presets.push(['@vue/babel-preset-jsx', { enableObjectSlots: false }])
   }
@@ -46,10 +51,30 @@ export function getBabelConfig(
   }
 }
 
+/**
+ * @description React babel config
+ * @param modules
+ * false -> es6
+ * cjs -> commonjs
+ */
+export function getReactBabelConfig(modules: modules): BabelConfig {
+  return {
+    presets: [
+      ['@babel/preset-env', { modules }],
+      '@babel/preset-react',
+      ['@babel/preset-typescript', { isTSX: true, allExtensions: true }]
+    ]
+  }
+}
+
 export function slash(str: string) {
   return str.replace(/\\/g, '/')
 }
 
 export function spinner(str?: string) {
   return ora(str)
+}
+
+export function getFileName(filePath: string) {
+  return path.basename(filePath, path.extname(filePath))
 }

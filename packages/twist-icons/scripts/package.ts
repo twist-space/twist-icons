@@ -8,9 +8,9 @@ export const packageMeta = (framename: FrameNameType, version: string) => {
   const packageMataBase = {
     author: 'razzh <razzhavenir@163.com>',
     license: 'MIT',
-    main: 'lib/cjs/index.js',
-    module: 'lib/esm/index.js',
-    types: 'lib/esm/index.d.ts',
+    main: 'lib/index.js',
+    module: 'lib/index.mjs',
+    types: 'lib/index.d.ts',
     sideEffects: false,
     repository: {
       type: 'git',

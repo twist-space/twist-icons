@@ -17,7 +17,7 @@ export async function generateDir(
     if (err.code === 'EEXIST') return
     throw err
   }
-  const version = (frameName: FrameNameType) => {
+  const getVersion = (frameName: FrameNameType) => {
     switch (frameName) {
     case 'vue3':
       return versionVue3
@@ -31,14 +31,14 @@ export async function generateDir(
   const generatePackageJson = () =>
     fs.writeFile(
       path.resolve(DIST, 'package.json'),
-      packageMeta(frameName, version(frameName))
+      packageMeta(frameName, getVersion(frameName))
     )
   const generateLibPackageJson = () =>
     fs.writeFile(
       path.resolve(LIB, 'package.json'),
       JSON.stringify({
-        main: 'cjs/index.js',
-        module: 'esm/index.js'
+        main: './index.js',
+        module: './index.mjs'
       }, null, 2)
     )
   const generateFileHeader = (file: string) =>
@@ -53,8 +53,7 @@ export async function generateDir(
   })
   await fs.mkdir(DIST).catch(ignore)
   await fs.mkdir(LIB).catch(ignore)
-  await fs.mkdir(path.resolve(LIB, 'esm')).catch(ignore)
-  await fs.mkdir(path.resolve(LIB, 'cjs')).catch(ignore)
+  await fs.mkdir(LIB).catch(ignore)
   await generatePackageJson().catch(ignore)
   await generateLibPackageJson().catch(ignore)
   const initFiles = frameName === 'vue2'

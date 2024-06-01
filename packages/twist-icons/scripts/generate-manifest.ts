@@ -3,7 +3,6 @@ import fse from 'fs-extra'
 import path from 'path'
 import { locate } from '@iconify/json'
 import { config, type IconConfig } from './config'
-import { getTemplate } from './utils'
 import type { BuildCommonConfig } from './build.config'
 
 export interface IconManifestType {
@@ -19,8 +18,7 @@ export interface IconManifestType {
 export async function generateManifest(
   buildConfig: BuildCommonConfig
 ) {
-  const manifestTemplate = getTemplate('icon-types-manifest.ejs')
-  const { LIB_ESM, LIB_CJS } = buildConfig
+  const { LIB } = buildConfig
 
   await Promise.all(
     config.map(async (icon: IconConfig) => {
@@ -44,26 +42,14 @@ export async function generateManifest(
 
       // generate esm manifest.js
       await fs.writeFile(
-        path.resolve(LIB_ESM, 'iconsManifest.js'),
+        path.resolve(LIB, 'iconsManifest.mjs'),
         `export var IconsManifest = ${IconManifest}`
       )
 
       // generate cjs manifest.js
       await fs.writeFile(
-        path.resolve(LIB_CJS, 'iconsManifest.js'),
+        path.resolve(LIB, 'iconsManifest.js'),
         `module.exports.IconsManifest = ${IconManifest}`
-      )
-
-      // generate esm dir manifest.d.ts
-      await fs.writeFile(
-        path.resolve(LIB_ESM, 'iconsManifest.d.ts'),
-        manifestTemplate()
-      )
-
-      // generate lib dir manifest.d.ts
-      await fs.writeFile(
-        path.resolve(LIB_CJS, 'iconsManifest.d.ts'),
-        manifestTemplate()
       )
     }
   )

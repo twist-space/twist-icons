@@ -1,14 +1,15 @@
 {
   "compilerOptions": {
     "module": "es6",
-    "target": "es6",
+    "target": "es5",
     "declaration": true,
+    "emitDeclarationOnly": true,
     "skipLibCheck": true,
     "noImplicitAny": true,
     "noUnusedLocals": true,
     "esModuleInterop": true,
     "moduleResolution": "node",
-    "lib": ["dom","esnext"],
+    "lib": ["dom","es2017"],
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true
   },
