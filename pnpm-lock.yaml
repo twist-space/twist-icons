@@ -1,9 +1,5 @@
 lockfileVersion: '6.0'
 
-settings:
-  autoInstallPeers: true
-  excludeLinksFromLockfile: false
-
 importers:
 
   .:
@@ -160,6 +156,14 @@ importers:
 
   packages/_react-icons: {}
 
+  packages/_vue2-icons:
+    devDependencies:
+      '@vue/babel-helper-vue-jsx-merge-props':
+        specifier: ^1.4.0
+        version: 1.4.0
+
+  packages/_vue3-icons: {}
+
   packages/plugins:
     dependencies:
       local-pkg:
@@ -191,8 +195,8 @@ importers:
         specifier: ^7.24.6
         version: 7.24.6(@babel/core@7.23.2)
       '@iconify/json':
-        specifier: 2.2.214
-        version: 2.2.214
+        specifier: 2.2.215
+        version: 2.2.215
       '@iconify/types':
         specifier: ^2.0.0
         version: 2.0.0
@@ -2431,8 +2435,8 @@ packages:
     engines: {node: '>=10.13.0'}
     dev: true
 
-  /@iconify/json@2.2.214:
-    resolution: {integrity: sha512-EVdAczIPBz1gcXVSHrEe0vBl6x4lcG7Dw95tO0o/h2SPTXKigEvV1cufe8yFFNuBHKqv/n1XTwqCZX0ontKTtw==}
+  /@iconify/json@2.2.215:
+    resolution: {integrity: sha512-uXEk3uB5pqNQmYw004lDQwaRVHbNKTDvHkOI0x24QvOGPqhQ+CbcWUlT/fOnwcjwPjsHxeAgUpwKz84sh0jpDg==}
     dependencies:
       '@iconify/types': 2.0.0
       pathe: 1.1.2
@@ -9122,3 +9126,7 @@ packages:
     resolution: {integrity: sha512-9bnSc/HEW2uRy67wc+T8UwauLuPJVn28jb+GtJY16iiKWyvmYJRXVT4UamsAEGQfPohgr2q4Tq0sQbQlxTfi1g==}
     engines: {node: '>=12.20'}
     dev: true
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
