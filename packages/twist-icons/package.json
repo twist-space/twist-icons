@@ -15,6 +15,7 @@
     "release:no-build": "tsx ./scripts/release.ts --vue2 --vue3 --react"
   },
   "devDependencies": {
+    "@babel/cli": "^7.24.6",
     "@babel/core": "^7.23.2",
     "@babel/preset-env": "^7.23.2",
     "@babel/preset-react": "^7.24.6",
@@ -33,6 +34,7 @@
     "@types/through2": "^2.0.40",
     "@vue/babel-plugin-jsx": "^1.1.5",
     "@vue/babel-preset-jsx": "^1.4.0",
+    "babel-plugin-add-import-extension": "^1.6.0",
     "execa": "^8.0.1",
     "fast-glob": "^3.3.2",
     "fs-extra": "^11.1.1",

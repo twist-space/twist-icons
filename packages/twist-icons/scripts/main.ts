@@ -15,14 +15,14 @@ import {
   generateIconsModuleForVue2
 } from './generate-icons'
 import { generateManifest } from './generate-manifest'
-import { checkIconifyVersion, checkNodeVersion } from './check-version'
+import { checkNodeVersion } from './check-version'
 import { spinner } from './utils'
 
 async function task(name: string, fn: () => Promise<void> | void) {
   const s = spinner(name).start()
   try {
     await fn()
-    s.succeed(`${name} successfully`)
+    s.succeed(` ${name} successfully`)
   } catch (error) {
     s.fail(error)
     throw error
@@ -94,7 +94,6 @@ async function main() {
   } = minimist<FrameNameType>(process.argv.slice(2))
 
   await checkNodeVersion()
-  await checkIconifyVersion()
   await emptyDirs()
   vue2 && await generateVue2Icons()
   vue3 && await generateVue3Icons()

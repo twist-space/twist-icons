@@ -1,0 +1,16 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "modules": "commonjs"
+      }
+    ],
+    [
+      "@vue/babel-preset-jsx",
+      {
+        "enableObjectSlots": false
+      }
+    ]
+  ]
+}

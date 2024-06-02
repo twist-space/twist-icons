@@ -1,6 +1,5 @@
 import path from 'path'
-import { getVueBabelConfig, getReactBabelConfig, slash } from './utils'
-import type { BabelConfig } from './types'
+import { slash } from './utils'
 
 export interface BuildCommonConfig {
   /**
@@ -41,16 +40,6 @@ export interface BuildReactConfig extends BuildCommonConfig {
    */
   BUILD_PATH: string
   /**
-   * babel config for React commonjs
-   * @zh React commonjs babel 配置
-   */
-  BABEL_CONFIG_CJS: BabelConfig
-  /**
-   * babel config for React es module
-   * @zh React es module babel 配置
-   */
-  BABEL_CONFIG_ESM: BabelConfig
-  /**
    * react publish config
    * @zh react 发布配置
    */
@@ -83,16 +72,6 @@ export interface BuildVue3Config extends BuildCommonConfig {
    */
   TSCONFIG: string
   /**
-   * babel config for Vue3 commonjs
-   * @zh Vue3 commonjs babel 配置
-   */
-  BABEL_CONFIG_CJS: BabelConfig
-  /**
-   * babel config for Vue3 es module
-   * @zh Vue3 es module babel 配置
-   */
-  BABEL_CONFIG_ESM: BabelConfig
-  /**
    * Vue3 publish config
    * @zh Vue3 发布配置
    */
@@ -113,16 +92,11 @@ export interface BuildVue3Config extends BuildCommonConfig {
 export interface BuildVue2Config extends BuildCommonConfig {
   JSX_FILES: string
   /**
-   * babel config for Vue2 commonjs
-   * @zh Vue2 commonjs babel 配置
+   * Babel transfrom output path
+   * @zh Vue2 Babel转义后的输出路径
    */
-  BABEL_CONFIG_CJS: BabelConfig
-  /**
-   * babel config for Vue2 es module
-   * @zh Vue2 es module babel 配置
-   */
-  BABEL_CONFIG_ESM: BabelConfig
-  /**
+  BUILD_PATH: string
+    /**
    * Vue2 publish config
    * @zh Vue2 发布配置
    */
@@ -151,8 +125,6 @@ export const ReactBuildConfig: BuildReactConfig = {
   SRC: resolve('src/react'),
   BUILD_PATH: resolve('build/react'),
   TSCONFIG: resolve('tsconfig.react.json'),
-  BABEL_CONFIG_CJS: getReactBabelConfig('cjs'),
-  BABEL_CONFIG_ESM: getReactBabelConfig(false),
   REACT_PUBLISH_CONFIG: {
     PKG_PATH: resolve('../_react-icons'),
     PKG_NAME: '@twist-space/react-icons'
@@ -166,8 +138,6 @@ export const Vue3BuildConfig: BuildVue3Config = {
   BUILD_PATH: resolve('build/vue3'),
   SRC: resolve('src/vue3'),
   TSCONFIG: resolve('tsconfig.vue.json'),
-  BABEL_CONFIG_CJS: getVueBabelConfig('cjs', 3),
-  BABEL_CONFIG_ESM: getVueBabelConfig(false, 3),
   VUE3_PUBLISH_CONFIG: {
     PKG_PATH: resolve('../_vue3-icons'),
     PKG_NAME: '@twist-space/vue3-icons'
@@ -177,9 +147,8 @@ export const Vue3BuildConfig: BuildVue3Config = {
 export const Vue2BuildConfig: BuildVue2Config = {
   DIST: resolve('../_vue2-icons'),
   LIB: resolve('../_vue2-icons/lib'),
+  BUILD_PATH: resolve('build/vue2'),
   JSX_FILES: resolve('src/vue2/**/*.jsx'),
-  BABEL_CONFIG_CJS: getVueBabelConfig('cjs', 2),
-  BABEL_CONFIG_ESM: getVueBabelConfig(false, 2),
   VUE2_PUBLISH_CONFIG: {
     PKG_PATH: resolve('../_vue2-icons'),
     PKG_NAME: '@twist-space/vue2-icons'

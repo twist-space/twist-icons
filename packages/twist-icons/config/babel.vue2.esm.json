@@ -1,0 +1,24 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "modules": false
+      }
+    ],
+    [
+      "@vue/babel-preset-jsx",
+      {
+        "enableObjectSlots": false
+      }
+    ]
+  ],
+  "plugins": [
+    [
+      "babel-plugin-add-import-extension",
+      {
+        "extension": "mjs"
+      }
+    ]
+  ]
+}

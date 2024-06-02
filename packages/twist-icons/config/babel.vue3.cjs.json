@@ -1,0 +1,26 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "modules": "commonjs"
+      }
+    ],
+    [
+      "@babel/preset-typescript",
+      {
+        "isTSX": true,
+        "allExtensions": true
+      }
+    ]
+  ],
+  "plugins": [
+    [
+      "@vue/babel-plugin-jsx",
+      {
+        "mergeProps": false,
+        "enableObjectSlots": false
+      }
+    ]
+  ]
+}
