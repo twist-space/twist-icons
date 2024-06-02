@@ -101,11 +101,11 @@ export async function generateIconsModule(
 
       // generate esm icon module
       await fs.writeFile(
-        path.resolve(DIST, id, 'index.esm.js'),
+        path.resolve(DIST, id, 'index.mjs'),
         iconEsmHeaderTemplate()
       )
       await fs.appendFile(
-        path.resolve(DIST, id, 'index.esm.js'),
+        path.resolve(DIST, id, 'index.mjs'),
         iconEsmModuleTemplate({
           name: pascalIconName,
           abstractNode: JSON.stringify(abstractNode)
@@ -129,9 +129,9 @@ export async function generateIconsModule(
       await fs.writeFile(
         path.resolve(DIST, id, 'package.json'),
         JSON.stringify({
-          main: 'index.js',
-          module: 'index.esm.js',
-          types: 'index.d.ts',
+          main: './index.js',
+          module: './index.mjs',
+          types: './index.d.ts',
           sideEffects: false
         }, null, 2)
       )
@@ -194,11 +194,11 @@ export async function generateIconsModuleForVue2(IconConfig: IconConfig, DIST: s
 
         // generate esm icon module
         await fs.writeFile(
-          path.resolve(DIST, id, 'index.esm.js'),
+          path.resolve(DIST, id, 'index.mjs'),
           iconEsmHeaderTemplate()
         )
         await fs.appendFile(
-          path.resolve(DIST, id, 'index.esm.js'),
+          path.resolve(DIST, id, 'index.mjs'),
           iconEsmModuleTemplate({
             name: pascalIconName,
             abstractNode: JSON.stringify(Icon)
@@ -209,8 +209,8 @@ export async function generateIconsModuleForVue2(IconConfig: IconConfig, DIST: s
         await fs.writeFile(
           path.resolve(DIST, id, 'package.json'),
           JSON.stringify({
-            main: 'index.js',
-            module: 'index.esm.js',
+            main: './index.js',
+            module: './index.mjs',
             sideEffects: false
           }, null, 2)
         )
