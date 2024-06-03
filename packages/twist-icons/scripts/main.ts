@@ -22,7 +22,7 @@ async function task(name: string, fn: () => Promise<void> | void) {
   const s = spinner(name).start()
   try {
     await fn()
-    s.succeed(` ${name} successfully`)
+    s.succeed(`${name} successfully`)
   } catch (error) {
     s.fail(error)
     throw error

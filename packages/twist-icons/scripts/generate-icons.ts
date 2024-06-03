@@ -1,4 +1,3 @@
-import fs from 'fs/promises'
 import fse from 'fs-extra'
 import { parseXml, XmlElement } from '@rgrove/parse-xml'
 import path from 'path'
@@ -70,72 +69,74 @@ export async function generateIconsModule(
   } = await fse.readJson(iconifyPath)
 
   if (iconify) {
-    Object.keys(iconify).forEach(async (iconNameRaw) => {
-      const { body, width, height } = iconify[iconNameRaw]
-      const pascalIconName = forrmatter(iconNameRaw)
-      const mergedWidth = width || generalWidth || info?.height
-      const mergeHeight = height || generalHeight || info?.height
-      const rawIcon = `<svg viewBox="0 0 ${mergedWidth} ${mergeHeight}">${body}</svg>`
-      const svgIconNode = parseXml(rawIcon)
+    await Promise.all(
+      Object.keys(iconify).map(async (iconNameRaw) => {
+        const { body, width, height } = iconify[iconNameRaw]
+        const pascalIconName = forrmatter(iconNameRaw)
+        const mergedWidth = width || generalWidth || info?.height
+        const mergeHeight = height || generalHeight || info?.height
+        const rawIcon = `<svg viewBox="0 0 ${mergedWidth} ${mergeHeight}">${body}</svg>`
+        const svgIconNode = parseXml(rawIcon)
 
-      const abstractNode = element2AbstractNode(
-        svgIconNode.children[0] as XmlElement,
-        type
-      )
+        const abstractNode = element2AbstractNode(
+          svgIconNode.children[0] as XmlElement,
+          type
+        )
 
-      if (exists.has(pascalIconName)) return
-      exists.add(pascalIconName)
+        if (exists.has(pascalIconName)) return
+        exists.add(pascalIconName)
 
-      // generate cjs icon module
-      await fs.writeFile(
-        path.resolve(DIST, id, 'index.js'),
-        iconCjsHeaderTemplate()
-      )
-      await fs.appendFile(
-        path.resolve(DIST, id, 'index.js'),
-        iconCjsModuleTemplate({
-          name: pascalIconName,
-          abstractNode: JSON.stringify(abstractNode)
-        })
-      )
+        // generate cjs icon module
+        await fse.writeFile(
+          path.resolve(DIST, id, 'index.js'),
+          iconCjsHeaderTemplate()
+        )
+        await fse.appendFile(
+          path.resolve(DIST, id, 'index.js'),
+          iconCjsModuleTemplate({
+            name: pascalIconName,
+            abstractNode: JSON.stringify(abstractNode)
+          })
+        )
 
-      // generate esm icon module
-      await fs.writeFile(
-        path.resolve(DIST, id, 'index.mjs'),
-        iconEsmHeaderTemplate()
-      )
-      await fs.appendFile(
-        path.resolve(DIST, id, 'index.mjs'),
-        iconEsmModuleTemplate({
-          name: pascalIconName,
-          abstractNode: JSON.stringify(abstractNode)
-        })
-      )
+        // generate esm icon module
+        await fse.writeFile(
+          path.resolve(DIST, id, 'index.mjs'),
+          iconEsmHeaderTemplate()
+        )
+        await fse.appendFile(
+          path.resolve(DIST, id, 'index.mjs'),
+          iconEsmModuleTemplate({
+            name: pascalIconName,
+            abstractNode: JSON.stringify(abstractNode)
+          })
+        )
 
-      // generate d.ts
-      await fs.writeFile(
-        path.resolve(DIST, id, 'index.d.ts'),
-        iconTypesHeaderTemplate()
-      )
+        // generate d.ts
+        await fse.writeFile(
+          path.resolve(DIST, id, 'index.d.ts'),
+          iconTypesHeaderTemplate()
+        )
 
-      await fs.appendFile(
-        path.resolve(DIST, id, 'index.d.ts'),
-        iconTypesTemplate({
-          name: pascalIconName
-        })
-      )
+        await fse.appendFile(
+          path.resolve(DIST, id, 'index.d.ts'),
+          iconTypesTemplate({
+            name: pascalIconName
+          })
+        )
 
-      // generate icon module package.json
-      await fs.writeFile(
-        path.resolve(DIST, id, 'package.json'),
-        JSON.stringify({
-          main: './index.js',
-          module: './index.mjs',
-          types: './index.d.ts',
-          sideEffects: false
-        }, null, 2)
-      )
-    })
+        // generate icon module package.json
+        await fse.writeFile(
+          path.resolve(DIST, id, 'package.json'),
+          JSON.stringify({
+            main: './index.js',
+            module: './index.mjs',
+            types: './index.d.ts',
+            sideEffects: false
+          }, null, 2)
+        )
+      })
+    )
   }
 }
 
@@ -180,11 +181,11 @@ export async function generateIconsModuleForVue2(IconConfig: IconConfig, DIST: s
         exists.add(pascalIconName)
 
         // generate cjs icon module
-        await fs.writeFile(
+        await fse.writeFile(
           path.resolve(DIST, id, 'index.js'),
           iconCjsHeaderTemplate()
         )
-        await fs.appendFile(
+        await fse.appendFile(
           path.resolve(DIST, id, 'index.js'),
           iconCjsModuleTemplate({
             name: pascalIconName,
@@ -193,11 +194,11 @@ export async function generateIconsModuleForVue2(IconConfig: IconConfig, DIST: s
         )
 
         // generate esm icon module
-        await fs.writeFile(
+        await fse.writeFile(
           path.resolve(DIST, id, 'index.mjs'),
           iconEsmHeaderTemplate()
         )
-        await fs.appendFile(
+        await fse.appendFile(
           path.resolve(DIST, id, 'index.mjs'),
           iconEsmModuleTemplate({
             name: pascalIconName,
@@ -206,7 +207,7 @@ export async function generateIconsModuleForVue2(IconConfig: IconConfig, DIST: s
         )
 
         // generate icon module package.json
-        await fs.writeFile(
+        await fse.writeFile(
           path.resolve(DIST, id, 'package.json'),
           JSON.stringify({
             main: './index.js',
