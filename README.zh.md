@@ -8,7 +8,7 @@
 | @twist-space/vue3-icons | [![npm version](https://img.shields.io/npm/v/@twist-space/vue3-icons.svg)](https://www.npmjs.com/package/@twist-space/vue3-icons)|
 | @twist-space/vue2-icons | [![npm version](https://img.shields.io/npm/v/@twist-space/vue2-icons.svg)](https://www.npmjs.com/package/@twist-space/vue2-icons)|
 
-Twist-Icons 是一套高质量的 SVG 图标库，它收集了流行的图标，提供了 React、Vue、Vue2 Icons 组件，你可以通过 ES6 的 import 方式轻松使用它们，[这篇文章](https://razzh.vercel.app/posts/twist-icons/)介绍了我创作的心路历程。
+Twist-Icons 是一套高质量的 SVG 图标库，它收集了流行的图标，提供了 React、Vue、Vue2 Icons 组件，你可以通过 ES6 的 import 方式轻松使用它们，[这篇文章](https://razzh.vercel.app/posts/twist-icons/)介绍这个项目的由来。
 
 ## 开始使用
 
@@ -149,4 +149,4 @@ export default defineConfig({
 ### Thanks
 
 这个项目受到 [react-icons](https://github.com/react-icons/react-icons) and [xicons](https://github.com/07akioni/xicons)
-的启发，我从中获益匪浅。
+的启发，项目的图标来源于 [iconify](https://iconify.design/)，我从中获益匪浅。

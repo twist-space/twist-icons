@@ -145,4 +145,4 @@ export default defineConfig({
 
 ### Thanks
 
-This project inspired by [react-icons](https://github.com/react-icons/react-icons) and [xicons](https://github.com/07akioni/xicons). I learned a lot from it, thanks these project maintainers!
+This project inspired by [react-icons](https://github.com/react-icons/react-icons) and [xicons](https://github.com/07akioni/xicons). The project Icons source from [iconify](https://iconify.design/), I learned a lot from it, thanks these project maintainers!
