@@ -1,22 +1,18 @@
 import minimist from 'minimist'
 import fs from 'fs-extra'
 import { generateDir } from './generate-dir'
-import { generateEntry } from './generate-entry'
 import { buildComponents } from './build'
-import { config } from './config'
-import type { FrameNameType } from './types'
+import { iconConfig } from './config'
 import {
   ReactBuildConfig,
   Vue3BuildConfig,
   Vue2BuildConfig
 } from './build.config'
-import {
-  generateIconsModule,
-  generateIconsModuleForVue2
-} from './generate-icons'
+import { generateIconsModule } from './generate-icons'
 import { generateManifest } from './generate-manifest'
 import { checkNodeVersion } from './check-version'
 import { spinner } from './utils'
+import type { FrameNameType } from './types'
 
 async function task(name: string, fn: () => Promise<void> | void) {
   const s = spinner(name).start()
@@ -33,13 +29,10 @@ async function generateReactIcons() {
   const { DIST } = ReactBuildConfig
   await task('Initialize react icons', async () => {
     await generateDir(ReactBuildConfig, 'react')
-    await generateEntry(DIST)
     await generateManifest(ReactBuildConfig)
   })
   await task('Generate react icons module', async () => {
-    await Promise.all(
-      config.map((IconConfig) => generateIconsModule(IconConfig, DIST, 'react'))
-    )
+    iconConfig.map((config) => generateIconsModule(config, DIST, 'react'))
   })
   await task('Build react icons', async () => {
     await buildComponents()
@@ -50,13 +43,10 @@ async function generateVue3Icons() {
   const { DIST } = Vue3BuildConfig
   await task('Initialize vue3 icons', async () => {
     await generateDir(Vue3BuildConfig, 'vue3')
-    await generateEntry(DIST)
     await generateManifest(Vue3BuildConfig)
   })
   await task('Generate vue3 icons module', async () => {
-    await Promise.all(
-      config.map((IconConfig) => generateIconsModule(IconConfig, DIST, 'vue3'))
-    )
+    iconConfig.map((config) => generateIconsModule(config, DIST, 'vue3'))
   })
   await task('Build vue3 icons', async () => {
     await buildComponents('vue3')
@@ -67,13 +57,10 @@ async function generateVue2Icons() {
   const { DIST } = Vue2BuildConfig
   await task('Initialize vue2 icons', async () => {
     await generateDir(Vue2BuildConfig, 'vue2')
-    await generateEntry(DIST, false)
     await generateManifest(Vue2BuildConfig)
   })
   await task('Generate vue2 icons module', async () => {
-    await Promise.all(
-      config.map((IconConfig) => generateIconsModuleForVue2(IconConfig, DIST))
-    )
+    iconConfig.map((config) => generateIconsModule(config, DIST, 'vue2'))
   })
   await task('Build vue2 icons', async () => {
     await buildComponents('vue2')

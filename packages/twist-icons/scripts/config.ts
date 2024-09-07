@@ -24,7 +24,7 @@ export interface FrameworksConfig {
   keywords: string[]
 }
 
-export const config: IconConfig[] = [
+export const iconConfig: IconConfig[] = [
   {
     id: 'ai',
     prefix: 'ant-design',

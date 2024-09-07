@@ -2,7 +2,7 @@ import fs from 'fs/promises'
 import fse from 'fs-extra'
 import path from 'path'
 import { locate } from '@iconify/json'
-import { config, type IconConfig } from './config'
+import { iconConfig, type IconConfig } from './config'
 import type { BuildCommonConfig } from './build.config'
 
 export interface IconManifestType {
@@ -21,7 +21,7 @@ export async function generateManifest(
   const { LIB } = buildConfig
 
   await Promise.all(
-    config.map(async (icon: IconConfig) => {
+    iconConfig.map(async (icon: IconConfig) => {
       const iconifyPath = await locate(icon.prefix)
       const { info: { author, license, total } } = await fse.readJson(iconifyPath)
       const iconManifest: IconManifestType = {

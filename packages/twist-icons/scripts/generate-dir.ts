@@ -1,10 +1,20 @@
 import fs from 'fs/promises'
+import fse from 'fs-extra'
 import path from 'path'
-import { config } from './config'
-import { rmDirRecursive } from './utils'
+import { iconConfig } from './config'
+import {
+  rmDirRecursive,
+  cjsHeaderTemplate,
+  esmHeaderTemplate,
+  typesHeaderTemplate,
+  cjsLibEntryTemplate,
+  esmLibEntryTemplate,
+  dtsLibEntryTemplate
+} from './utils'
 import { packageMeta } from './package'
 import { versionReact, versionVue3, versionVue2 } from './version'
-import type { FrameNameType } from './types'
+import { READEME_PATH } from './build.config'
+import type { FrameNameType, entryFileTypes, entryFiles } from './types'
 import type { BuildCommonConfig } from './build.config'
 
 export async function generateDir(
@@ -41,11 +51,6 @@ export async function generateDir(
         module: './index.mjs'
       }, null, 2)
     )
-  const generateFileHeader = (file: string) =>
-    fs.writeFile(
-      path.resolve(DIST, file),
-      '// AUTO GENERATED FILE, DO NOT EDIT\n'
-    )
 
   await rmDirRecursive(DIST).catch((err) => {
     if (err.code === 'ENOENT') return
@@ -53,17 +58,89 @@ export async function generateDir(
   })
   await fs.mkdir(DIST).catch(ignore)
   await fs.mkdir(LIB).catch(ignore)
-  await fs.mkdir(LIB).catch(ignore)
   await generatePackageJson().catch(ignore)
   await generateLibPackageJson().catch(ignore)
-  const initFiles = frameName === 'vue2'
-    ? ['index.js', 'index.esm.js']
-    : ['index.js', 'index.esm.js', 'index.d.ts']
-  for (const { id } of config) {
-    await fs.mkdir(path.resolve(DIST, id))
+
+  const packageRaw = {
+    main: './index.js',
+    module: './index.mjs',
+    types: './index.d.ts',
+    sideEffects: false
+  }
+  // const initFiles =
+
+  if (frameName === 'vue2') {
+    Reflect.deleteProperty(packageRaw, 'types')
   }
 
-  for (const file of initFiles) {
-    await generateFileHeader(file)
+  // generate icons module entry files
+  for (const { id } of iconConfig) {
+    await fs.mkdir(path.resolve(DIST, id))
+    // generate files header
+    await fse.writeFile(
+      path.resolve(DIST, id, 'index.js'),
+      cjsHeaderTemplate()
+    )
+    await fse.writeFile(
+      path.resolve(DIST, id, 'index.mjs'),
+      esmHeaderTemplate()
+    )
+
+    // generate d.ts header
+    await fse.writeFile(
+      path.resolve(DIST, id, 'index.d.ts'),
+      typesHeaderTemplate()
+    )
+
+    // generate icon module package.json
+    await fse.writeFile(
+      path.resolve(DIST, id, 'package.json'),
+      JSON.stringify(packageRaw)
+    )
   }
+
+  const generateFramewrokEntryFileHeader = async (file: string, type: entryFileTypes) => {
+    if (type === 'cjs') {
+      await fs.writeFile(
+        path.resolve(DIST, file),
+        `// AUTO GENERATED FILE, DO NOT EDIT\n${cjsLibEntryTemplate}`
+      )
+    }
+
+    if (type === 'esm') {
+      await fs.writeFile(
+        path.resolve(DIST, file),
+        `// AUTO GENERATED FILE, DO NOT EDIT\n${esmLibEntryTemplate}`
+      )
+    }
+
+    if (type === 'dts') {
+      await fs.writeFile(
+        path.resolve(DIST, file),
+        `// AUTO GENERATED FILE, DO NOT EDIT\n${dtsLibEntryTemplate}`
+      )
+    }
+  }
+
+  const entryFiles: entryFiles[] = [
+    {
+      type: 'cjs',
+      entry: 'index.js'
+    },
+    {
+      type: 'esm',
+      entry: 'index.mjs'
+    }
+  ]
+
+  if (frameName === 'vue2') {
+    entryFiles.concat({ type: 'dts', entry: 'index.d.ts' })
+  }
+
+  for (const { entry, type } of entryFiles) {
+    generateFramewrokEntryFileHeader(entry, type)
+  }
+
+  // copy README.md file to entry root
+  await fs.copyFile(READEME_PATH, path.resolve(DIST, 'README.md'))
 }
