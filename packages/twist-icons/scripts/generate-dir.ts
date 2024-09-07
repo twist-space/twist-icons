@@ -113,7 +113,7 @@ export async function generateDir(
         `// AUTO GENERATED FILE, DO NOT EDIT\n${esmLibEntryTemplate}`
       )
     }
-
+    
     if (type === 'dts') {
       await fs.writeFile(
         path.resolve(DIST, file),
@@ -122,7 +122,7 @@ export async function generateDir(
     }
   }
 
-  const entryFiles: entryFiles[] = [
+  let entryFiles: entryFiles[] = [
     {
       type: 'cjs',
       entry: 'index.js'
@@ -133,8 +133,8 @@ export async function generateDir(
     }
   ]
 
-  if (frameName === 'vue2') {
-    entryFiles.concat({ type: 'dts', entry: 'index.d.ts' })
+  if (frameName === 'react' || frameName === 'vue3') {
+    entryFiles = entryFiles.concat([{ type: 'dts', entry: 'index.d.ts' }])
   }
 
   for (const { entry, type } of entryFiles) {
