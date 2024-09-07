@@ -102,6 +102,14 @@ Icon 组件提供了自定义的 API，如大小，颜色，样式等。
 | spin  | `string`           | false   | SVG旋转动画              |
 | rotate| `string`           | -       | Icon的旋转角度           |
 
+如果你想使用 `spin` 动画，你可以在项目的 `main` 文件中导入并执行 `mountedTwistIconsStyles` 函数，它的作用是在 `head` 标签下插入带有 `animation css` 的 `style` 标签
+```tsx
+// main file
+import { mountedTwistIconsStyles } from '@twist-space/xxx-icons'
+
+mountedTwistIconsStyles()
+```
+
 ### IconProvider API
 
 使用 IconProvider 将会影响所有 Icons 组件 prop 的默认值，但是用户传入的 Icons 组件的 prop 值的优先级是大于 IconProvider 的。
@@ -146,7 +154,9 @@ export default defineConfig({
 
 > 注意: 如果你使用 Webpack，你只需要转换路径就可以，就像这样：unplugin-vue-components/webpack
 
-### Thanks
-
+### Credits
 这个项目受到 [react-icons](https://github.com/react-icons/react-icons) and [xicons](https://github.com/07akioni/xicons)
 的启发，项目的图标来源于 [iconify](https://iconify.design/)，我从中获益匪浅。
+- [iconify](https://github.com/iconify/iconify)
+- [react-icons](https://github.com/react-icons/react-icons)
+- [xicons](https://github.com/07akioni/xicons)

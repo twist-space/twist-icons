@@ -101,6 +101,15 @@ An universal icon component is provided for customizing color & size of the inne
 | spin  | `string`           | false   | Spin animation of the icon |
 | rotate| `string`           | -       | Rotate style of the icon |
 
+if you want use spin animation, you can import `mountedTwistIconsStyles` function call it in main files, it can mounted `animation css` style tag to head.
+
+```tsx
+// main file
+import { mountedTwistIconsStyles } from '@twist-space/xxx-icons'
+
+mountedTwistIconsStyles()
+```
+
 ### IconProvider API
 
 IconProvider will affect all the descendant Icons' default prop value, but the priority less than icon component user props.
@@ -146,3 +155,6 @@ export default defineConfig({
 ### Thanks
 
 This project inspired by [react-icons](https://github.com/react-icons/react-icons) and [xicons](https://github.com/07akioni/xicons). The project Icons source from [iconify](https://iconify.design/), I learned a lot from it, thanks these project maintainers!
+- [iconify](https://github.com/iconify/iconify)
+- [react-icons](https://github.com/react-icons/react-icons)
+- [xicons](https://github.com/07akioni/xicons)
