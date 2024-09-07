@@ -120,6 +120,12 @@ export const iconConfig: IconConfig[] = [
     prefix: 'twemoji',
     name: 'Twitter Emoji',
     forrmatter: (name) => `Te${normalizeName(name)}`
+  },
+  {
+    id: 'lu',
+    prefix: 'lucide',
+    name: 'Lucide',
+    forrmatter: (name) => `Lu${normalizeName(name)}`
   }
 ]
 
