@@ -7,7 +7,6 @@ import {
   h
 } from 'vue'
 import { IconContextKey, IconContext, DefaultContext } from './IconContext'
-import { UseInsertStyle } from './useInsertStyles'
 
 export interface AbstractNode {
   tag: string
@@ -78,7 +77,6 @@ export function IconBase(props: IconProps, { slots, attrs }) {
     >
       {titleTag}
       {children}
-      <UseInsertStyle />
     </svg>
   )
 }

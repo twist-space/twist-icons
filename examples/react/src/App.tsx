@@ -7,7 +7,7 @@ function App() {
   return (
     <IconProvider value={{size: 60}}>
       <AiThunderboltFilled color="#906efe" />
-      <TiModeDark size={30} />
+      <TiModeDark size={30} spin />
     </IconProvider>
   )
 }

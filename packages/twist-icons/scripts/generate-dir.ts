@@ -67,7 +67,6 @@ export async function generateDir(
     types: './index.d.ts',
     sideEffects: false
   }
-  // const initFiles =
 
   if (frameName === 'vue2') {
     Reflect.deleteProperty(packageRaw, 'types')
@@ -113,7 +112,7 @@ export async function generateDir(
         `// AUTO GENERATED FILE, DO NOT EDIT\n${esmLibEntryTemplate}`
       )
     }
-    
+
     if (type === 'dts') {
       await fs.writeFile(
         path.resolve(DIST, file),

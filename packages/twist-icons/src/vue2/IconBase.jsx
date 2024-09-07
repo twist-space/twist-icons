@@ -1,5 +1,4 @@
 import { IconContextKey } from './IconContext'
-import { insertStyles } from './InsertStyles'
 
 const renderHelper = (h, node) => node &&
   node.map((child, i) =>
@@ -29,9 +28,6 @@ export const GenIcon = (icon) => {
       return {
         icon
       }
-    },
-    beforeMount() {
-      insertStyles('@twist-space/twist-icons-vue2')
     },
     render(h) {
       const { config, $attrs: attrs, $props: props } = this

@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { IconContext, DefaultContext } from './IconContext'
-import { useInsertStyles } from './useInsertStyles'
 
 export interface AbstractNode {
   tag: string
@@ -32,9 +31,7 @@ export function IconBase(props: IconProps): React.JSX.Element {
     color,
     ...svgProps
   } = props
-  const GlobalConfig = React.useContext(IconContext)
 
-  useInsertStyles('@twist-space/react-icons-css')
   const elem = (config: IconContext) => {
     const mergedSize = size || config.size || '1em'
     let className
@@ -78,9 +75,13 @@ export function IconBase(props: IconProps): React.JSX.Element {
     )
   }
 
-  return GlobalConfig !== undefined ?
-    elem(GlobalConfig) :
+  return IconContext !== undefined ? (
+    <IconContext.Consumer>
+      {(conf: IconContext) => elem(conf)}
+    </IconContext.Consumer>
+  ) : (
     elem(DefaultContext)
+  )
 }
 
 export function normalizeStyle(styleString: string) {
