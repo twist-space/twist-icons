@@ -112,12 +112,18 @@ export async function generateIconsModule(
         if (type === 'vue2') {
           cjsModules.push(cjsModuleTemplateVue2({
             name: pascalIconName,
-            abstractNode: JSON.stringify(abstractNode)
+            abstractNode: JSON.stringify({
+              name: pascalIconName,
+              abstractNode
+            })
           }))
 
           esmModules.push(esmModuleTemplateVue2({
             name: pascalIconName,
-            abstractNode: JSON.stringify(abstractNode)
+            abstractNode: JSON.stringify({
+              name: pascalIconName,
+              abstractNode
+            })
           }))
         }
       })
