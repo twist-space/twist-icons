@@ -152,7 +152,7 @@ export default defineConfig({
 
 > Note: The above content using unplugin plugins is also applicable to Webpack, you only need to switch the path of the plugin introduction.
 
-### Thanks
+### Credits
 
 This project inspired by [react-icons](https://github.com/react-icons/react-icons) and [xicons](https://github.com/07akioni/xicons). The project Icons source from [iconify](https://iconify.design/), I learned a lot from it, thanks these project maintainers!
 - [iconify](https://github.com/iconify/iconify)
