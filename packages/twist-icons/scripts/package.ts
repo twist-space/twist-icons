@@ -2,6 +2,31 @@ import { normalizeName } from './utils'
 import { iconConfig } from './config'
 import type { FrameNameType } from './types'
 
+function generatePeerDependencies(frameName: FrameNameType) {
+  let peerDependencies: Record<string, string>
+
+  if (frameName === 'react') {
+    peerDependencies = {
+      react: '*'
+    }
+  }
+
+  if (frameName === 'vue3') {
+    peerDependencies = {
+      vue: '>=3.0.3'
+    }
+  }
+
+  if (frameName === 'vue2') {
+    peerDependencies = {
+      vue: '>=2.5.0',
+      'vue-template-compiler': '>=2.5.0'
+    }
+  }
+
+  return peerDependencies
+}
+
 export const packageMeta = (framename: FrameNameType, version: string) => {
   const packageMataBase = {
     author: 'razzh <razzhavenir@163.com>',
@@ -18,13 +43,6 @@ export const packageMeta = (framename: FrameNameType, version: string) => {
       url: 'https://github.com/twist-space/twist-icons/issues'
     },
     homepage: 'https://github.com/twist-space/twist-icons#readme'
-  }
-  const devDependencies = framename === 'vue2'
-    ? { '@vue/babel-helper-vue-jsx-merge-props': '^1.4.0' }
-    : undefined
-
-  if (framename === 'vue2') {
-    Reflect.deleteProperty(packageMataBase, 'types')
   }
 
   // generate exports
@@ -55,12 +73,23 @@ export const packageMeta = (framename: FrameNameType, version: string) => {
     }
   })
 
+  const peerDependencies = generatePeerDependencies(framename)
+
+  const devDependencies = framename === 'vue2'
+    ? { '@vue/babel-helper-vue-jsx-merge-props': '^1.4.0' }
+    : undefined
+
+  if (framename === 'vue2') {
+    Reflect.deleteProperty(packageMataBase, 'types')
+  }
+
   return JSON.stringify(
     {
       name: `@twist-space/${framename}-icons`,
       version,
       description: `${normalizeName(framename)} SVG icon packs powered by Iconify`,
       ...packageMataBase,
+      peerDependencies,
       exports,
       devDependencies
     },
