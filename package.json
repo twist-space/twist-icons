@@ -16,7 +16,7 @@
     "genIcon:vue3": "pnpm -C ./packages/twist-icons genIcon:vue3",
     "genIcon:react": "pnpm -C ./packages/twist-icons genIcon:react",
     "release:all": "pnpm -C ./packages/twist-icons release:all",
-    "release:vue2": "pnpm -C ./packages/twist-icons relase:vue2",
+    "release:vue2": "pnpm -C ./packages/twist-icons release:vue2",
     "release:vue3": "pnpm -C ./packages/twist-icons release:vue3",
     "release:react": "pnpm -C ./packages/twist-icons release:react",
     "release:no-build": "pnpm -C ./packages/twist-icons release:no-build",
