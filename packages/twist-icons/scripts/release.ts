@@ -19,6 +19,8 @@ async function release(publishConifg: PublishConfig) {
     })
     s.succeed(`Publishing ${PKG_NAME} v${version} successfully!`)
   } catch (error) {
+    // eslint-disable-next-line no-console
+    console.error('err', error)
     s.fail(error)
   }
 }
