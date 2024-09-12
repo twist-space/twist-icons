@@ -158,5 +158,6 @@ export default defineConfig({
 这个项目受到 [react-icons](https://github.com/react-icons/react-icons) and [xicons](https://github.com/07akioni/xicons)
 的启发，项目的图标来源于 [iconify](https://iconify.design/)，我从中获益匪浅。
 - [iconify](https://github.com/iconify/iconify)
+- [ant-design-icons](https://github.com/ant-design/ant-design-icons)
 - [react-icons](https://github.com/react-icons/react-icons)
 - [xicons](https://github.com/07akioni/xicons)
