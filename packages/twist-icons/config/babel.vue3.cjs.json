@@ -13,14 +13,5 @@
         "allExtensions": true
       }
     ]
-  ],
-  "plugins": [
-    [
-      "@vue/babel-plugin-jsx",
-      {
-        "mergeProps": false,
-        "enableObjectSlots": false
-      }
-    ]
   ]
 }
