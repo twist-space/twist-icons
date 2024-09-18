@@ -130,8 +130,8 @@ importers:
   examples/vite-vue3:
     dependencies:
       '@twist-space/vue3-icons':
-        specifier: file:../../packages/_vue3-icons
-        version: file:packages/_vue3-icons(vue@3.4.38)
+        specifier: workspace:^
+        version: link:../../packages/_vue3-icons
       vue:
         specifier: ^3.3.4
         version: 3.4.38(typescript@5.5.4)
@@ -9335,14 +9335,4 @@ packages:
   file:packages/_react-icons:
     resolution: {directory: packages/_react-icons, type: directory}
     name: _react-icons
-    dev: false
-
-  file:packages/_vue3-icons(vue@3.4.38):
-    resolution: {directory: packages/_vue3-icons, type: directory}
-    id: file:packages/_vue3-icons
-    name: '@twist-space/vue3-icons'
-    peerDependencies:
-      vue: '>=3.0.3'
-    dependencies:
-      vue: 3.4.38(typescript@5.5.4)
     dev: false

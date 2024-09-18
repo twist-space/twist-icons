@@ -9,8 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@twist-space/vue3-icons": "file:../../packages/_vue3-icons",
-    "vue": "^3.3.4"
+    "vue": "^3.3.4",
+    "@twist-space/vue3-icons": "workspace:^"
   },
   "devDependencies": {
     "@twist-space/twist-icons-plugins": "workspace:^",
