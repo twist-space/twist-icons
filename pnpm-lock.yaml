@@ -84,8 +84,8 @@ importers:
   examples/react:
     dependencies:
       '@twist-space/react-icons':
-        specifier: file:../../packages/_react-icons
-        version: file:packages/_react-icons
+        specifier: workspace:^
+        version: link:../../packages/_react-icons
       react:
         specifier: ^18.2.0
         version: 18.3.1
@@ -157,6 +157,25 @@ importers:
       vue-tsc:
         specifier: ^1.8.5
         version: 1.8.27(typescript@5.5.4)
+
+  packages/_react-icons:
+    dependencies:
+      react:
+        specifier: '*'
+        version: 18.3.1
+
+  packages/_vue2-icons:
+    dependencies:
+      vue:
+        specifier: '>=2.5.0'
+        version: 3.4.38(typescript@5.5.4)
+      vue-template-compiler:
+        specifier: '>=2.5.0'
+        version: 2.6.14
+    devDependencies:
+      '@vue/babel-helper-vue-jsx-merge-props':
+        specifier: ^1.4.0
+        version: 1.4.0
 
   packages/_vue3-icons:
     dependencies:
@@ -4428,7 +4447,6 @@ packages:
 
   /de-indent@1.0.2:
     resolution: {integrity: sha512-e/1zu3xH5MQryN2zdVaF0OrdNLUbvWxzMbi+iNA6Bky7l1RoP8a2fIbRocyHclXt/arDrrR6lL3TqFD9pMQTsg==}
-    dev: true
 
   /debug@3.2.7:
     resolution: {integrity: sha512-CFjzYYAi4ThfiQvizrFQevTTXHtnCqWfe7x1AhgEscTz6ZbLbfoLRLPugTQyBth6f8ZERVUSyWHFD/7Wu4t1XQ==}
@@ -5666,7 +5684,6 @@ packages:
   /he@1.2.0:
     resolution: {integrity: sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw==}
     hasBin: true
-    dev: true
 
   /hosted-git-info@2.8.9:
     resolution: {integrity: sha512-mxIDAb9Lsm6DoOJ7xH+5+X4y1LU/4Hi50L9C5sIswK3JzULS4bwk1FvjdBgvYR4bzT4tuUQiC15FE2f5HbLvYw==}
@@ -9054,7 +9071,6 @@ packages:
     dependencies:
       de-indent: 1.0.2
       he: 1.2.0
-    dev: true
 
   /vue-template-compiler@2.7.16:
     resolution: {integrity: sha512-AYbUWAJHLGGQM7+cNTELw+KsOG9nl2CnSv467WobS5Cv9uk3wFcnr1Etsz2sEIHEZvw1U+o9mRlEO6QbZvUPGQ==}
@@ -9331,8 +9347,3 @@ packages:
     resolution: {integrity: sha512-b4JR1PFR10y1mKjhHY9LaGo6tmrgjit7hxVIeAmyMw3jegXR4dhYqLaQF5zMXZxY7tLpMyJeLjr1C4rLmkVe8g==}
     engines: {node: '>=12.20'}
     dev: true
-
-  file:packages/_react-icons:
-    resolution: {directory: packages/_react-icons, type: directory}
-    name: _react-icons
-    dev: false
