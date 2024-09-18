@@ -84,8 +84,8 @@ importers:
   examples/react:
     dependencies:
       '@twist-space/react-icons':
-        specifier: workspace:^
-        version: link:../../packages/_react-icons
+        specifier: file:../../packages/_react-icons
+        version: file:packages/_react-icons
       react:
         specifier: ^18.2.0
         version: 18.3.1
@@ -130,8 +130,8 @@ importers:
   examples/vite-vue3:
     dependencies:
       '@twist-space/vue3-icons':
-        specifier: 0.2.17
-        version: 0.2.17
+        specifier: file:../../packages/_vue3-icons
+        version: file:packages/_vue3-icons(vue@3.4.38)
       vue:
         specifier: ^3.3.4
         version: 3.4.38(typescript@5.5.4)
@@ -158,15 +158,11 @@ importers:
         specifier: ^1.8.5
         version: 1.8.27(typescript@5.5.4)
 
-  packages/_react-icons: {}
-
-  packages/_vue2-icons:
-    devDependencies:
-      '@vue/babel-helper-vue-jsx-merge-props':
-        specifier: ^1.4.0
-        version: 1.4.0
-
-  packages/_vue3-icons: {}
+  packages/_vue3-icons:
+    dependencies:
+      vue:
+        specifier: '>=3.0.3'
+        version: 3.4.38(typescript@5.5.4)
 
   packages/plugins:
     dependencies:
@@ -2806,10 +2802,6 @@ packages:
       '@tufjs/canonical-json': 1.0.0
       minimatch: 9.0.5
     dev: true
-
-  /@twist-space/vue3-icons@0.2.17:
-    resolution: {integrity: sha512-xPqXu/a42voLIN04Np8OPzeg1lgLYUxxU9W11E24/VkBA3ippt8Gv10AQJ+vXRkNAEwIzxqo6O7h1vjunbTmEw==}
-    dev: false
 
   /@types/aria-query@5.0.4:
     resolution: {integrity: sha512-rfT93uj5s0PRL7EzccGMs3brplhcrghnDoV26NqKhCAS1hVo+WdNsPvE/yb6ilfr5hi2MEk6d5EWJTKdxg8jVw==}
@@ -9339,3 +9331,18 @@ packages:
     resolution: {integrity: sha512-b4JR1PFR10y1mKjhHY9LaGo6tmrgjit7hxVIeAmyMw3jegXR4dhYqLaQF5zMXZxY7tLpMyJeLjr1C4rLmkVe8g==}
     engines: {node: '>=12.20'}
     dev: true
+
+  file:packages/_react-icons:
+    resolution: {directory: packages/_react-icons, type: directory}
+    name: _react-icons
+    dev: false
+
+  file:packages/_vue3-icons(vue@3.4.38):
+    resolution: {directory: packages/_vue3-icons, type: directory}
+    id: file:packages/_vue3-icons
+    name: '@twist-space/vue3-icons'
+    peerDependencies:
+      vue: '>=3.0.3'
+    dependencies:
+      vue: 3.4.38(typescript@5.5.4)
+    dev: false

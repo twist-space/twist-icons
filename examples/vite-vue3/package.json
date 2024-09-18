@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@twist-space/vue3-icons": "0.2.17",
+    "@twist-space/vue3-icons": "file:../../packages/_vue3-icons",
     "vue": "^3.3.4"
   },
   "devDependencies": {
