@@ -2,7 +2,6 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "jsx": "preserve",
-    "noImplicitAny": false,
     "rootDir": "src/vue3",
     "outDir": "build/vue3",
     "types": ["vue"]

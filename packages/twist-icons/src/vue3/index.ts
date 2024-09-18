@@ -1,4 +1,5 @@
 export * from './IconBase'
 export * from './IconContext'
 export * from './mountedLoadingStyles'
-export * from './iconsManifest'
+export type * from './iconsManifest'
+export type * from './interface'

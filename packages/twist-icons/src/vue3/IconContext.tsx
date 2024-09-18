@@ -1,38 +1,28 @@
 import {
-  CSSProperties,
   provide,
-  SVGAttributes,
   renderSlot,
   defineComponent,
-  PropType
+  PropType,
+  CSSProperties
 } from 'vue'
+import type { IconContext } from './interface'
 
-export type IconContext = {
-  color?: string
-  size?: number
-  class?: string
-  style?: CSSProperties
-  attrs?: SVGAttributes
-}
 export const IconContextKey = Symbol('IconContextKey')
 
 export const DefaultContext: IconContext = {
   color: undefined,
   size: undefined,
-  class: undefined,
   style: undefined,
-  attrs: undefined
+  class: undefined
 }
 
 export const IconProvider = defineComponent({
   name: 'IconProvider',
   props: {
-    color: String,
-    size: Number,
-    class: String,
+    color: String as PropType<string>,
+    size: [String, Number] as PropType<string | number | undefined>,
     style: Object as PropType<CSSProperties>,
-    attrs: String as PropType<SVGAttributes>,
-    styleValue: String
+    class: String as PropType<string>
   },
   setup(props, { slots }) {
     provide(IconContextKey, props)
