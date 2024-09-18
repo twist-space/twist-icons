@@ -1,20 +1,16 @@
 # [](https://github.com/twist-space/twist-icons/compare/v1.0.0-alpha.2...v) (2024-09-18)
 
 
-### Bug Fixes
 
-* missing xmlns ([fa5814f](https://github.com/twist-space/twist-icons/commit/fa5814f3f7166f5546ea9eac3d2f7d4c4ee0a253))
-* vue3 example ([98b9e79](https://github.com/twist-space/twist-icons/commit/98b9e79d2183ac28c331042704ef4685799a3204))
-
-
-
-# [1.0.0-alpha.2](https://github.com/twist-space/twist-icons/compare/v1.0.0-alpha.1...v1.0.0-alpha.2) (2024-09-07)
+# [1.0.0-alpha.2](https://github.com/twist-space/twist-icons/compare/v1.0.0-alpha.1...v1.0.0-alpha.2) (2024-09-18)
 
 
 ### Bug Fixes
 
 * **build:** vue2 icon render error ([b861507](https://github.com/twist-space/twist-icons/commit/b86150731cca8814e90636addc2591f371adab93))
+* missing xmlns ([fa5814f](https://github.com/twist-space/twist-icons/commit/fa5814f3f7166f5546ea9eac3d2f7d4c4ee0a253))
 * package typo ([a6e0b8d](https://github.com/twist-space/twist-icons/commit/a6e0b8db008bbc6c70918b53cd726358a5e740ac))
+* vue3 example ([98b9e79](https://github.com/twist-space/twist-icons/commit/98b9e79d2183ac28c331042704ef4685799a3204))
 
 
 
