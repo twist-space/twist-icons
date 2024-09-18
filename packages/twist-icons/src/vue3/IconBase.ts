@@ -46,8 +46,8 @@ export const IconBase = defineComponent({
 
       if (props.spin) {
         classnames
-          ? classnames += 'twist-icon-loading'
-          : classnames = 'twist-icon-loading'
+          ? classnames += 'twist-vue3-icon--spin'
+          : classnames = 'twist-vue3-icon--spin'
       }
       return classnames
     })

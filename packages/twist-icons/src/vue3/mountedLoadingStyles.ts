@@ -1,11 +1,11 @@
 const iconCss = `
-.twist-icon-loading {
+.twist-vue3-icon--spin {
   display: inline-block;
   -webkit-animation: loadingCircle 1s infinite linear;
-  animation: twist-icon-circle-loading 1s infinite linear;
+  animation: twist-vue3-icon-circle--spin 1s infinite linear;
 }
 
-@-webkit-keyframes twist-icon-circle-loading {
+@-webkit-keyframes twist-vue3-icon-circle--spin {
   100% {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
@@ -14,14 +14,14 @@ const iconCss = `
 `
 
 /**
- * if you want icons loading animation,
+ * if you want icons spin animation,
  * can use it mounted style to head
- * @zh-CN 如果你想要让icons有loading效果
- * 你可以使用这个函数向head挂在loading动画
+ * @zh-CN 如果你想要让icons有spin效果
+ * 你可以使用这个函数向head挂在spin动画
  */
 export function mountedTwistIconsStyles() {
   const style = document.createElement('style')
-  const id = '__twist-icons-loading-vue3__'
+  const id = '__twist-vue3-icons-spin__'
   style.setAttribute('id', `${id}`)
   style.textContent = iconCss
 
