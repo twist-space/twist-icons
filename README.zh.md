@@ -2,13 +2,27 @@
 
 [English](README.md) | 简体中文
 
-| package                 | version |
-| ------------------------| --------|
-| @twist-space/react-icons| [![npm version](https://img.shields.io/npm/v/@twist-space/react-icons.svg)](https://www.npmjs.com/package/@twist-space/react-icons) |
-| @twist-space/vue3-icons | [![npm version](https://img.shields.io/npm/v/@twist-space/vue3-icons.svg)](https://www.npmjs.com/package/@twist-space/vue3-icons)|
-| @twist-space/vue2-icons | [![npm version](https://img.shields.io/npm/v/@twist-space/vue2-icons.svg)](https://www.npmjs.com/package/@twist-space/vue2-icons)|
+## 迁移到 @twistify
+`@twist-space` 命名空间下的包正在转到 `@twistify` 命名空间
 
-Twist-Icons 是一套高质量的 SVG 图标库，它收集了流行的图标，提供了 React、Vue、Vue2 Icons 组件，你可以通过 ES6 的 import 方式轻松使用它们，[这篇文章](https://razzh.vercel.app/posts/twist-icons/)介绍这个项目的由来。
+## 为什么
+
+迁移的主要目的是为了简化开发过程中引入该包的便捷性，因为 `@twist-space` 在输入的过程中字幕较多，此外需要输入“-”，特别在频繁的引入多个库的图标时显得非常繁琐，而 `@twistify` 的命名空间虽说字母也没少几个，但是在一定程度下减少了这一痛点。
+
+### 有什么改变？
+
+- 旧包名:
+  - @twist-space/react-icons
+  - @twist-space/vue3-icons
+  - @twist-space/vue2-icons
+  - @twist-space/twist-icons-plugins
+- 新包名:
+  - @twistify/react-icons
+  - @twistify/vue3-icons
+  - @twistify/vue2-icons
+  - @twistify/icons-plugins
+
+> 现版本是 `@twist-space` 最后一个版本，之后会全部迁移到 `@twistify` 下
 
 ## 开始使用
 

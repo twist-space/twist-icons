@@ -2,13 +2,27 @@
 
 English | [简体中文](README.zh.md)
 
-| package                 | version |
-| ------------------------| --------|
-| @twist-space/react-icons| [![npm version](https://img.shields.io/npm/v/@twist-space/react-icons.svg)](https://www.npmjs.com/package/@twist-space/react-icons) |
-| @twist-space/vue3-icons | [![npm version](https://img.shields.io/npm/v/@twist-space/vue3-icons.svg)](https://www.npmjs.com/package/@twist-space/vue3-icons)|
-| @twist-space/vue2-icons | [![npm version](https://img.shields.io/npm/v/@twist-space/vue2-icons.svg)](https://www.npmjs.com/package/@twist-space/vue2-icons)|
+## Migrating to @twistify
+I'm transitioning icon libraries from the `@twist-space` namespace to `@twistify` for improved ease of use and efficiency.  
 
-Twist-Icons is a set of high-quality SVG icon libraries. It collection popular Icons provide React、Vue and Vue2 Icons component, you can easy use them with ES6 import.
+### Why the Change?
+
+The primary reason for this migration is to simplify the typing and usage experience. The `@twistify` namespace eliminates the hyphen **(-)** present in @twist-space, making it quicker and more convenient to input, especially during frequent development tasks. This small change helps streamline workflows, reducing the potential for typing errors and saving time.
+
+### What’s Changing?
+
+- Old Packages:
+  - @twist-space/react-icons
+  - @twist-space/vue3-icons
+  - @twist-space/vue2-icons
+  - @twist-space/twist-icons-plugins
+- New Packages:
+  - @twistify/react-icons
+  - @twistify/vue3-icons
+  - @twistify/vue2-icons
+  - @twistify/icons-plugins
+
+> The version is `@twist-space` packages last version, It is recommended to migrate to the new `@twistify` packages as soon as possible.
 
 ## Usage
 
