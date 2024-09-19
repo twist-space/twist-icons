@@ -4,8 +4,7 @@ export const IconProvider = {
   name: 'IconProvider',
   props: {
     color: String,
-    size: Number,
-    styleValue: String
+    size: Number
   },
   provide() {
     return {

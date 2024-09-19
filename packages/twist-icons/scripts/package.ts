@@ -75,10 +75,6 @@ export const packageMeta = (framename: FrameNameType, version: string) => {
 
   const peerDependencies = generatePeerDependencies(framename)
 
-  const devDependencies = framename === 'vue2'
-    ? { '@vue/babel-helper-vue-jsx-merge-props': '^1.4.0' }
-    : undefined
-
   if (framename === 'vue2') {
     Reflect.deleteProperty(packageMataBase, 'types')
   }
@@ -90,8 +86,7 @@ export const packageMeta = (framename: FrameNameType, version: string) => {
       description: `${normalizeName(framename)} SVG icon packs powered by Iconify`,
       ...packageMataBase,
       peerDependencies,
-      exports,
-      devDependencies
+      exports
     },
     null,
     2

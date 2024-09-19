@@ -5,12 +5,6 @@
       {
         "modules": false
       }
-    ],
-    [
-      "@vue/babel-preset-jsx",
-      {
-        "enableObjectSlots": false
-      }
     ]
   ],
   "plugins": [

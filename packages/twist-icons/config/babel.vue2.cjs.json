@@ -5,12 +5,6 @@
       {
         "modules": "commonjs"
       }
-    ],
-    [
-      "@vue/babel-preset-jsx",
-      {
-        "enableObjectSlots": false
-      }
     ]
   ]
 }
