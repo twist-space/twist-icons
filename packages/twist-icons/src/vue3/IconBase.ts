@@ -23,8 +23,6 @@ export const IconBase = defineComponent({
   props: {
     size: [String, Number] as PropType<string | number | undefined>,
     color: String as PropType<string>,
-    style: Object as PropType<CSSProperties>,
-    class: String as PropType<string>,
     title: String as PropType<string>,
     spin: Boolean as PropType<boolean>,
     rotate: Number as PropType<number>
@@ -33,28 +31,14 @@ export const IconBase = defineComponent({
     const config = inject<IconContext>(IconContextKey, DefaultContext)
     const mergedSize = computed<Numberish>(() => props.size || config.size || '1em')
     const mergedClass = computed<string | undefined>(() => {
-      let classnames
-      if (config.class) {
-        classnames = config.class
-      }
-
-      if (props.class) {
-        classnames = classnames
-          ? `${classnames} ${props.class}`
-          : props.class
-      }
-
       if (props.spin) {
-        classnames
-          ? classnames += 'twist-vue3-icon--spin'
-          : classnames = 'twist-vue3-icon--spin'
+        return 'twist-vue3-icon--spin'
       }
-      return classnames
+      return undefined
     })
     const mergedStyles = computed<CSSProperties>(() => {
       const styles = {}
       if (props.rotate) {
-        Reflect.set(styles, 'msTransform', `rotate(${props.rotate}deg)`)
         Reflect.set(styles, 'transform', `rotate(${props.rotate}deg)`)
       }
 
@@ -62,11 +46,7 @@ export const IconBase = defineComponent({
         ? Reflect.set(styles, 'color', props.color)
         : Reflect.set(styles, 'color', config.color)
 
-      return {
-        ...styles,
-        ...config?.style,
-        ...props?.style
-      }
+      return styles
     })
 
     const titleTag = props.title ? h('title', props.title) : null

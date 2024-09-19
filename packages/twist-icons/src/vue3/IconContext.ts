@@ -11,9 +11,7 @@ export const IconContextKey = Symbol('IconContextKey')
 
 export const DefaultContext: IconContext = {
   color: undefined,
-  size: undefined,
-  style: undefined,
-  class: undefined
+  size: undefined
 }
 
 export const IconProvider = defineComponent({
