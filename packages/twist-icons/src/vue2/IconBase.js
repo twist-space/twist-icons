@@ -43,7 +43,7 @@ export const GenIcon = (icon) => {
         if (spin) {
           return 'twist-vue2-icon--spin'
         }
-        return null
+        return undefined
       },
       mergedStyles() {
         const { config, rotate, color } = this
