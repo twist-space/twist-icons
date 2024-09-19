@@ -10,6 +10,7 @@ import {
 } from './build.config'
 import { generateIconsModule } from './generate-icons'
 import { generateManifest } from './generate-manifest'
+import { checkIconifyVersion } from './check-version'
 import { spinner } from './utils'
 import type { FrameNameType } from './types'
 
@@ -79,6 +80,7 @@ async function main() {
     react
   } = minimist<FrameNameType>(process.argv.slice(2))
 
+  await checkIconifyVersion()
   await emptyDirs()
   vue2 && await generateVue2Icons()
   vue3 && await generateVue3Icons()
