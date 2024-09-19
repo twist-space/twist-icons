@@ -1,12 +1,12 @@
 {
   "name": "twist-icons-root",
   "private": true,
-  "packageManager": "pnpm@8.2.0",
+  "packageManager": "pnpm@9.9.0",
   "description": "A set of high-quality SVG icon components for you to use in your Vue、React projects.",
   "author": "razzh7 <razzhavenir@163.com>",
   "license": "MIT",
   "engines": {
-    "node": "16.x"
+    "node": ">=18"
   },
   "scripts": {
     "init": "pnpm install && pnpm genIcon:all",
@@ -46,7 +46,7 @@
     "react": "^18.2.0",
     "rimraf": "^5.0.5",
     "svgo": "^3.0.2",
-    "tsx": "3.14.0",
+    "tsx": "^4.19.1",
     "typescript": "^5.2.2",
     "vite": "^4.4.5",
     "vitest": "^1.0.1"
