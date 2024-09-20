@@ -1,6 +1,6 @@
-import { IconProvider } from '@twist-space/react-icons'
-import { AiThunderboltFilled } from '@twist-space/react-icons/ai'
-import { TiModeDark } from '@twist-space/react-icons/ti'
+import { IconProvider } from '@twistify/react-icons'
+import { AiThunderboltFilled } from '@twistify/react-icons/ai'
+import { TiModeDark } from '@twistify/react-icons/ti'
 import './App.css'
 
 function App() {
