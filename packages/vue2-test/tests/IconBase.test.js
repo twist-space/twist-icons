@@ -3,7 +3,7 @@ import { describe, test, expect } from 'vitest'
 import { IconProvider } from '../../_vue2-icons'
 import { AiAudioFilled, AiAudioTwotone } from '../../_vue2-icons/ai'
 
-describe('@twist-space/vue2-icons Icon test', () => {
+describe('@twistify/vue2-icons Icon test', () => {
   test('Icon component direct render', () => {
     const Icon = mount(AiAudioFilled)
     expect(Icon.html()).toMatchSnapshot()
@@ -54,7 +54,7 @@ describe('@twist-space/vue2-icons Icon test', () => {
   })
 })
 
-describe('@twist-space/vue2-icons IconProvider test', () => {
+describe('@twistify/vue2-icons IconProvider test', () => {
   test('IconProvider direct render', () => {
     const IconProviderWrapper = mount(IconProvider)
     expect(IconProviderWrapper.html()).toMatchSnapshot()

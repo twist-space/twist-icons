@@ -4,7 +4,7 @@ import { render } from '@testing-library/react'
 import { IconProvider } from '../../_react-icons'
 import { AiAudioFilled, AiAudioTwotone } from '../../_react-icons/ai'
 
-describe('@twist-space/react-icons', () => {
+describe('@twistify/react-icons', () => {
   test('Icon component directly render', () => {
     const { asFragment } = render(<AiAudioFilled />)
     expect(asFragment()).toMatchSnapshot()

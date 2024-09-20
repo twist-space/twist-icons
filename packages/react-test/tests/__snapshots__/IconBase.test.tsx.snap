@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`@twist-space/react-icons > Icon component directly render 1`] = `
+exports[`@twistify/react-icons > Icon component directly render 1`] = `
 <DocumentFragment>
   <svg
     height="1em"
