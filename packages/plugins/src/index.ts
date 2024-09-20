@@ -7,7 +7,7 @@ export type VueResolverOptions = {
   version: 'vue3' | 'vue2'
 }
 
-export type TwistVueIconsType = '@twist-space/vue3-icons' | '@twist-space/vue2-icons'
+export type TwistVueIconsType = '@twistify/vue3-icons' | '@twistify/vue2-icons'
 
 let _cacheIconIdentify: string[]
 let module: TwistVueIconsType
@@ -51,13 +51,13 @@ export function TwistIconsVueResolver(
 ): ComponentResolver[] {
   try {
     if (!_cacheIconIdentify) {
-      module = `@twist-space/${version}-icons`
+      module = `@twistify/${version}-icons`
       const iconPath = resolveModule(module)
       const manifestStr = readFileSync(`${dirname(iconPath)}/IconsManifest.js`, 'utf-8')
       _cacheIconIdentify = parse(manifestStr).map((item) => item.id)
     }
   } catch (error) {
-    throw new Error(`[@twist-space/twist-icons-plugins]: failed to load "${module}", have you installed it?`)
+    throw new Error(`[@twistify/twist-icons-plugins]: failed to load "${module}", have you installed it?`)
   }
 
   return [
