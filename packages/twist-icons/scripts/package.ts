@@ -81,7 +81,7 @@ export const packageMeta = (framename: FrameNameType, version: string) => {
 
   return JSON.stringify(
     {
-      name: `@twist-space/${framename}-icons`,
+      name: `@twistify/${framename}-icons`,
       version,
       description: `${normalizeName(framename)} SVG icon packs powered by Iconify`,
       ...packageMataBase,

@@ -4,7 +4,7 @@ import { describe, test, expect } from 'vitest'
 import { IconProvider } from '../../_vue3-icons'
 import { AiAudioFilled, AiAudioTwotone } from '../../_vue3-icons/ai'
 
-describe('@twist-space/vue3-icons', () => {
+describe('@twistify/vue3-icons', () => {
   test('Icon component directly render', () => {
     const Icon = mount(AiAudioFilled)
     expect(Icon.html()).toMatchSnapshot()

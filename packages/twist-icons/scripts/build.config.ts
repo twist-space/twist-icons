@@ -119,7 +119,7 @@ export const resolve = (dir: string) => slash(path.resolve(rootDir, dir))
 export const READEME_PATH = resolve('../../README.md')
 
 export const ReactBuildConfig: BuildReactConfig = {
-  PKG_NAME: '@twist-space/react-icons',
+  PKG_NAME: '@twistify/react-icons',
   DIST: resolve('../_react-icons'),
   LIB: resolve('../_react-icons/lib'),
   SRC: resolve('src/react'),
@@ -127,12 +127,12 @@ export const ReactBuildConfig: BuildReactConfig = {
   TSCONFIG: resolve('tsconfig.react.json'),
   REACT_PUBLISH_CONFIG: {
     PKG_PATH: resolve('../_react-icons'),
-    PKG_NAME: '@twist-space/react-icons'
+    PKG_NAME: '@twistify/react-icons'
   }
 }
 
 export const Vue3BuildConfig: BuildVue3Config = {
-  PKG_NAME: '@twist-space/vue3-icons',
+  PKG_NAME: '@twistify/vue3-icons',
   DIST: resolve('../_vue3-icons'),
   LIB: resolve('../_vue3-icons/lib'),
   BUILD_PATH: resolve('build/vue3'),
@@ -140,7 +140,7 @@ export const Vue3BuildConfig: BuildVue3Config = {
   TSCONFIG: resolve('tsconfig.vue.json'),
   VUE3_PUBLISH_CONFIG: {
     PKG_PATH: resolve('../_vue3-icons'),
-    PKG_NAME: '@twist-space/vue3-icons'
+    PKG_NAME: '@twistify/vue3-icons'
   }
 }
 
@@ -151,6 +151,6 @@ export const Vue2BuildConfig: BuildVue2Config = {
   JSX_FILES: resolve('src/vue2/**/*.jsx'),
   VUE2_PUBLISH_CONFIG: {
     PKG_PATH: resolve('../_vue2-icons'),
-    PKG_NAME: '@twist-space/vue2-icons'
+    PKG_NAME: '@twistify/vue2-icons'
   }
 }

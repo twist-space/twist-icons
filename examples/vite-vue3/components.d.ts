@@ -7,9 +7,9 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
-    AiThunderboltFilled: typeof import('@twist-space/vue3-icons/ai')['AiThunderboltFilled']
+    AiThunderboltFilled: typeof import('@twistify/vue3-icons/ai')['AiThunderboltFilled']
     App: typeof import('./src/App.vue')['default']
-    IconProvider: typeof import('@twist-space/vue3-icons')['IconProvider']
-    TiModeDark: typeof import('@twist-space/vue3-icons/ti')['TiModeDark']
+    IconProvider: typeof import('@twistify/vue3-icons')['IconProvider']
+    TiModeDark: typeof import('@twistify/vue3-icons/ti')['TiModeDark']
   }
 }
