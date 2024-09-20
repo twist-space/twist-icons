@@ -1,5 +1,6 @@
 {
   "name": "@twistify/icons-plugins",
+  "private": "false",
   "version": "0.1.1",
   "license": "MIT",
   "author": "razzh7",

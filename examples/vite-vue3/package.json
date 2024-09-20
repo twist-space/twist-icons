@@ -9,11 +9,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "vue": "^3.3.4",
-    "@twist-space/vue3-icons": "workspace:^"
+    "vue": "^3.3.4"
   },
   "devDependencies": {
-    "@twist-space/twist-icons-plugins": "workspace:^",
     "@vitejs/plugin-vue": "^4.2.3",
     "cross-env": "^7.0.3",
     "typescript": "^5.0.2",
