@@ -1,7 +1,7 @@
 import { resolveModule } from 'local-pkg'
 import { dirname } from 'path'
 import { readFileSync } from 'fs'
-import type { ComponentResolver } from 'unplugin-vue-components/types'
+import type { ComponentInfo, ComponentResolver } from 'unplugin-vue-components/types'
 
 export type VueResolverOptions = {
   version: 'vue3' | 'vue2'
@@ -21,7 +21,7 @@ function parse(manifest: string) {
   return []
 }
 
-export function resolveIcons(rawName: string, module: string) {
+export function resolveIcons(rawName: string, module: string): ComponentInfo | undefined {
   const name = rawName.toLowerCase()
   const id = _cacheIconIdentify.find((id) => name.startsWith(id))
 

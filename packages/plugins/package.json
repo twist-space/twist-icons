@@ -1,31 +1,36 @@
 {
   "name": "@twistify/icons-plugin",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "license": "MIT",
   "author": "razzh7",
   "type": "module",
-  "main": "dist/cjs/index.js",
-  "module": "dist/es/index.js",
-  "types": "dist/types/index.d.ts",
   "exports": {
     ".": {
-      "require": "./dist/cjs/index.js",
-      "import": "./dist/es/index.js",
-      "types": "./dist/types/index.d.ts"
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
     }
   },
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "rimraf dist && pnpm build:esm && pnpm build:cjs",
-    "build:esm": "tsc --module esnext --outDir dist/es",
-    "build:cjs": "tsc --module commonjs --outDir dist/cjs"
+    "dev": "tsx ./scripts/build.ts --watch",
+    "build": "tsx ./scripts/build.ts"
   },
   "dependencies": {
     "local-pkg": "^0.5.0"
   },
   "devDependencies": {
+    "@types/minimist": "^1.2.5",
+    "@types/node": "^20.8.10",
+    "chalk": "^5.3.0",
+    "execa": "^8.0.1",
+    "minimist": "^1.2.8",
+    "tsup": "^8.3.5",
     "unplugin-vue-components": "^0.26.0"
   }
 }

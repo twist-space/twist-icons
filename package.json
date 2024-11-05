@@ -21,7 +21,6 @@
     "release:no-build": "pnpm -C ./packages/twist-icons release:no-build",
     "lint": "eslint ./packages --ext .ts,.js,.tsx,.jsx",
     "lint:tsc": "tsc --noEmit --skipLibCheck --project ./packages/twist-icons/tsconfig.base.json",
-    "prepare": "pnpm init",
     "test": "vitest"
   },
   "devDependencies": {
