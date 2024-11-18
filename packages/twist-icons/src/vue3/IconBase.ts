@@ -21,6 +21,8 @@ export const IconBase = defineComponent({
   name: 'IconBase',
   inheritAttrs: false,
   props: {
+    class: String,
+    style: Object as PropType<CSSProperties>,
     size: [String, Number] as PropType<string | number | undefined>,
     color: String as PropType<string>,
     title: String as PropType<string>,
@@ -30,14 +32,16 @@ export const IconBase = defineComponent({
   setup(props, { slots, attrs }) {
     const config = inject<IconContext>(IconContextKey, DefaultContext)
     const mergedSize = computed<Numberish>(() => props.size || config.size || '1em')
-    const mergedClass = computed<string | undefined>(() => {
+    const computedSpin = computed<string | undefined>(() => {
       if (props.spin) {
         return 'twist-vue3-icon--spin'
       }
       return undefined
     })
     const mergedStyles = computed<CSSProperties>(() => {
-      const styles = {}
+      const styles = {
+        ...props.style
+      }
       if (props.rotate) {
         Reflect.set(styles, 'transform', `rotate(${props.rotate}deg)`)
       }
@@ -56,7 +60,7 @@ export const IconBase = defineComponent({
       {
         xmlns: 'http://www.w3.org/2000/svg',
         ...attrs,
-        class: mergedClass.value,
+        class: [props.class, computedSpin.value],
         style: mergedStyles.value,
         width: mergedSize.value,
         height: mergedSize.value

@@ -16,6 +16,8 @@ export const GenIcon = (icon) => {
     name: icon.name,
     inheritAttrs: false,
     props: {
+      class: String,
+      style: Object,
       size: Number,
       color: String,
       title: String,
@@ -38,7 +40,7 @@ export const GenIcon = (icon) => {
         const { size, config } = this
         return size || config.size || '1em'
       },
-      mergedClassname() {
+      computedSpin() {
         const { spin } = this
         if (spin) {
           return 'twist-vue2-icon--spin'
@@ -63,10 +65,11 @@ export const GenIcon = (icon) => {
     },
     render(h) {
       const {
+        class: cls,
         $attrs,
         title,
         mergedSize,
-        mergedClassname,
+        computedSpin,
         mergedStyles
       } = this
       const { abstractNode } = this.icon
@@ -87,7 +90,7 @@ export const GenIcon = (icon) => {
             width: mergedSize,
             height: mergedSize
           },
-          class: mergedClassname,
+          class: [cls, computedSpin],
           style: mergedStyles
         },
         [

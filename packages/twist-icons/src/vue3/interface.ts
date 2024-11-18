@@ -1,6 +1,8 @@
-import { FunctionalComponent } from 'vue'
+import type { CSSProperties, FunctionalComponent } from 'vue'
 
 export interface IconBaseProps {
+  class?: string;
+  style?: CSSProperties
   size?: number;
   color?: string
 }
