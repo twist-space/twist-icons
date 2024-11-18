@@ -4,6 +4,7 @@
   "author": "razzh <razzhavenir@163.com>",
   "license": "MIT",
   "scripts": {
+    "init": "pnpm genIcon:all",
     "genIcon:all": "tsx ./scripts/main.ts --vue2 --vue3 --react",
     "genIcon:vue2": "tsx ./scripts/main.ts --vue2",
     "genIcon:vue3": "tsx ./scripts/main.ts --vue3",
@@ -44,5 +45,8 @@
     "npm-check-updates": "^16.14.12",
     "ora": "^8.0.1",
     "vue": "^3.3.9"
+  },
+  "engines": {
+    "node": ">=18"
   }
 }
