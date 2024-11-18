@@ -91,7 +91,7 @@ Icon 组件提供了自定义的 API，如大小，颜色，样式等。
 | className | `string`       | -       | React Icon             |
 | class | `string`           | -       | Vue Icon的类名          |
 | title | `string`           | -       | SVG title标签           |
-| spin  | `string`           | false   | SVG旋转动画              |
+| spin  | `boolean`           | false   | SVG旋转动画              |
 | rotate| `string`           | -       | Icon的旋转角度           |
 
 如果你想使用 `spin` 动画，你可以在项目的 `main` 文件中导入并执行 `mountedTwistIconsStyles` 函数，它的作用是在 `head` 标签下插入带有 `animation css` 的 `style` 标签

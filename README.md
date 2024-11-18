@@ -97,7 +97,7 @@ An universal icon component is provided for customizing color & size of the inne
 | style | `CSSProperties`    | -       | Style of the icon      |
 | class | `string`           | -       | Class of the icon      |
 | title | `string`           | -       | SVG title of the icon  |
-| spin  | `string`           | false   | Spin animation of the icon |
+| spin  | `boolean`           | false   | Spin animation of the icon |
 | rotate| `string`           | -       | Rotate style of the icon |
 
 if you want use spin animation, you can import `mountedTwistIconsStyles` function call it in main files, it can mounted `animation css` style tag to head.
