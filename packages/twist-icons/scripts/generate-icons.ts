@@ -2,7 +2,8 @@ import fse from 'fs-extra'
 import { parseXml, XmlElement } from '@rgrove/parse-xml'
 import path from 'path'
 import camelCase from 'lodash.camelcase'
-import { locate } from '@iconify/json'
+// import { locate } from '@iconify/json'
+import { importModule } from 'local-pkg'
 import { type IconConfig } from './config'
 import {
   cjsModuleTemplate,
@@ -60,6 +61,7 @@ export async function generateIconsModule(
     prefix,
     forrmatter
   } = iconConfig
+  const { locate } = await importModule('@iconify/json')
   const iconifyPath = await locate(prefix)
   const {
     icons: iconify,
