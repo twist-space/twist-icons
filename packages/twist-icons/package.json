@@ -21,7 +21,7 @@
     "@babel/preset-env": "^7.23.2",
     "@babel/preset-react": "^7.24.6",
     "@babel/preset-typescript": "^7.24.6",
-    "@iconify/json": "^2.2.310",
+    "@iconify/json": "^2.2.314",
     "@iconify/types": "^2.0.0",
     "@rgrove/parse-xml": "^4.1.0",
     "@types/babel__core": "^7.20.5",
