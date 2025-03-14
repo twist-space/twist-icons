@@ -12,7 +12,7 @@ export async function checkIconifyVersion() {
     if (newVersion) {
       s.warn(`${packageName} has a new version, now update${newVersion}...`)
       await execa('ncu', ['-u', packageName])
-      await execa('pnpm', ['install', packageName])
+      await execa('pnpm', ['install', '--force'])
       s.succeed(`${newVersion} update successfully!`)
       return
     }
