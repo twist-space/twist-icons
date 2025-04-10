@@ -213,8 +213,8 @@ importers:
         specifier: ^7.24.6
         version: 7.24.7(@babel/core@7.25.2)
       '@iconify/json':
-        specifier: ^2.2.314
-        version: 2.2.314
+        specifier: ^2.2.325
+        version: 2.2.325
       '@iconify/types':
         specifier: ^2.0.0
         version: 2.0.0
@@ -1645,8 +1645,8 @@ packages:
     resolution: {integrity: sha512-e5+YUKENATs1JgYHMzTr2MW/NDcXGfYFAuOQU8gJgF/kEh4EqKgfGrfLI67bMD4tbhZVlkigz/9YYwWcbOFthg==}
     engines: {node: '>=10.13.0'}
 
-  '@iconify/json@2.2.314':
-    resolution: {integrity: sha512-yikVmts2jl9Z5ozNekFhEv5ovZBGOC24ugMrcobOr6gnOHuRrr9XCZvpY5lmUT2TIT0NGWKVAaPbhmRkJIukUw==}
+  '@iconify/json@2.2.325':
+    resolution: {integrity: sha512-DKBZY0nXvllakPDUHpxmETE4y6hOHkBfr3IHTxGxHmoXWCCynEPMocXSui8BO9GLEYSV+ztkh/aacgxSFKl+JQ==}
 
   '@iconify/types@2.0.0':
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
@@ -6881,7 +6881,7 @@ snapshots:
 
   '@hutson/parse-repository-url@5.0.0': {}
 
-  '@iconify/json@2.2.314':
+  '@iconify/json@2.2.325':
     dependencies:
       '@iconify/types': 2.0.0
       pathe: 1.1.2
